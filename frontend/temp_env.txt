@@ -1,0 +1,16 @@
+VITE_API_BASE_URL=http://localhost:3001
+
+# External Service Configuration (Optional for testing)
+REACT_APP_KOBOTOOLBOX_TOKEN=demo_token
+REACT_APP_KOBOTOOLBOX_USERNAME=demo_user
+
+# Security Configuration
+REACT_APP_ENCRYPTION_KEY=development_encryption_key_32_chars
+
+# Feature Flags
+REACT_APP_ENABLE_WHATSAPP=true
+REACT_APP_ENABLE_2FA=true
+REACT_APP_ENABLE_OFFLINE=true
+
+# Environment
+REACT_APP_ENV=development

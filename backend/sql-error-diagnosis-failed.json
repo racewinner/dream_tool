@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-08-04T18:31:25.850Z",
+  "error": "",
+  "capturedLogs": [
+    {
+      "timestamp": "2025-08-04T18:31:25.811Z",
+      "type": "log",
+      "message": "\n🚀 Triggering KoboToolbox import with enhanced logging..."
+    },
+    {
+      "timestamp": "2025-08-04T18:31:25.850Z",
+      "type": "error",
+      "message": "\n💥 Error during diagnosis: "
+    }
+  ]
+}

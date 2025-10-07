@@ -1,0 +1,51 @@
+[2025-07-29T03:00:09.686Z] ===== Starting Data Import Verification =====
+[2025-07-29T03:00:09.789Z] ✅ Connected to the database
+[2025-07-29T03:00:09.790Z] 
+Most recent facility:
+[2025-07-29T03:00:09.810Z] {
+  "id": 3,
+  "name": "Test Healthcare Facility",
+  "type": "healthcare",
+  "latitude": 0,
+  "longitude": 0,
+  "status": "survey",
+  "createdAt": "2025-07-29T02:57:24.022Z",
+  "updatedAt": "2025-07-29T02:57:24.022Z",
+  "userId": null
+}
+[2025-07-29T03:00:09.811Z] 
+Surveys for facility ID 3:
+[2025-07-29T03:00:09.820Z] 
+Survey #1:
+[2025-07-29T03:00:09.821Z] Could not parse facilityData: "[object Object]" is not valid JSON
+[2025-07-29T03:00:09.822Z] {
+  "id": 1,
+  "externalId": "TEST-1753757844022",
+  "facilityId": 3,
+  "facilityData": {
+    "type": "healthcare",
+    "operational_status": "operational",
+    "has_electricity": true,
+    "power_source": "grid",
+    "backup_power": "generator",
+    "notes": "Test survey entry",
+    "surveyor_name": "Test User",
+    "gps_coordinates": {
+      "lat": 0,
+      "lng": 0
+    }
+  },
+  "collectionDate": "2025-07-29T02:57:24.022Z",
+  "respondentId": "test-respondent-123",
+  "createdAt": "2025-07-29T02:57:24.022Z",
+  "updatedAt": "2025-07-29T02:57:24.023Z",
+  "createdBy": null
+}
+[2025-07-29T03:00:09.835Z] 
+Database Summary:
+[2025-07-29T03:00:09.836Z] - Total facilities: 2
+[2025-07-29T03:00:09.837Z] - Total surveys: 1
+[2025-07-29T03:00:09.844Z] 
+Disconnected from the database
+[2025-07-29T03:00:09.845Z] 
+Check the complete output in: C:\Users\Olivia\DREAM_TOOL\backend\src\scripts\verify-import-output.txt

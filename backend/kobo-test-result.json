@@ -1,0 +1,179 @@
+{
+  "startTime": "2025-07-29T05:46:59.894Z",
+  "config": {
+    "apiUrl": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/",
+    "apiKey": "***REDACTED***",
+    "surveyId": "643695471"
+  },
+  "request": {
+    "method": "GET",
+    "url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471"
+  },
+  "response": {
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "date": "Tue, 29 Jul 2025 05:47:03 GMT",
+      "content-type": "application/json",
+      "transfer-encoding": "chunked",
+      "connection": "keep-alive",
+      "server": "nginx",
+      "vary": "Accept, origin, Accept-Language, Cookie",
+      "allow": "GET, DELETE, HEAD, OPTIONS",
+      "content-security-policy": "style-src 'self' https://kc-eu.kobotoolbox.org https://ee-eu.kobotoolbox.org 'unsafe-inline'; frame-src 'self' https://kc-eu.kobotoolbox.org https://ee-eu.kobotoolbox.org https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://js.stripe.com https://js.stripe.com; script-src 'self' https://kc-eu.kobotoolbox.org https://ee-eu.kobotoolbox.org https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://js.stripe.com https://js.stripe.com; img-src 'self' https://kc-eu.kobotoolbox.org https://ee-eu.kobotoolbox.org data: https://*.openstreetmap.org https://*.openstreetmap.fr https://*.opentopomap.org https://*.arcgisonline.com https://*.google-analytics.com https://*.googletagmanager.com; default-src 'self' https://kc-eu.kobotoolbox.org https://ee-eu.kobotoolbox.org https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://js.stripe.com https://js.stripe.com; connect-src 'self' https://kc-eu.kobotoolbox.org https://ee-eu.kobotoolbox.org https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://js.stripe.com https://js.stripe.com; report-uri https://sentry.kbtdev.org/api/20/security/?sentry_key=cbf272aafa764afc9ac47376a3f23383",
+      "x-kobonaut": "mpakravan_ge",
+      "x-frame-options": "DENY",
+      "content-language": "en",
+      "strict-transport-security": "max-age=15780000",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "same-origin",
+      "cross-origin-opener-policy": "same-origin",
+      "set-cookie": "django_language=en; expires=Tue, 05 Aug 2025 05:47:03 GMT; Max-Age=604800; Path=/"
+    },
+    "data": {
+      "_id": 643695471,
+      "formhub/uuid": "f9be92d2957142acad970978ce3de179",
+      "start": "2025-02-13T09:03:14.879+03:00",
+      "end": "2025-02-13T09:52:45.916+03:00",
+      "general_information/I_hereby_consent_to_participat": "OK",
+      "general_information/Interviewee_s_signature": "signature-9_49_27.png",
+      "general_information/Interviewer_s_signature": "signature-9_49_36.png",
+      "general_information/Enumerator_s_name": "Nafiso Aadan Abdirahman",
+      "general_information/date": "2025-02-13",
+      "general_information/Q2_Enter_a_time": "09:03:00.000+03:00",
+      "general_information/location": "3.110254 43.664173 386 19",
+      "general_information/clinical_cadre": "Clinical Officer",
+      "general_information/Name_HF": "Kalmo MCH",
+      "general_information/Q3_Region": "Bay",
+      "general_information/Q9_District": "Baidoa",
+      "general_information/type_healthcare_facility": "2",
+      "general_information/ownership_facility": "1",
+      "general_information/operating_days_of": "3",
+      "health_services/general_clinical_services": "1 4 5 6 10 15 18 21",
+      "power_supply_quality/main_electricity": "5",
+      "power_supply_quality/section_electrified": "1",
+      "power_supply_quality/Q15_Is_the_electric_e_facility_reliable_": "2",
+      "power_supply_quality/Electricity_hours_access": "0",
+      "power_supply_quality/power_interruption_number": "0",
+      "power_supply_quality/power_interruption_duration": "0",
+      "power_supply_quality/Electricity_bill": "0",
+      "power_supply_quality/electricity_bill_payment": "6",
+      "power_supply_quality/challenge_primary_source": "5",
+      "power_supply_quality/secondary_elect_source_001": "8",
+      "communication/functioning_mobile_stff": "2",
+      "communication/Q35_Does_this_facil_eed_internet_access": "2",
+      "communication/digital_reporting_frequency": "4",
+      "water_supply_patient_numbers/water_pumps_num": "88",
+      "water_supply_patient_numbers/water_source_available": "5",
+      "water_supply_patient_numbers/water_treatment_type": "2",
+      "water_supply_patient_numbers/facility_patients": "1",
+      "water_supply_patient_numbers/Q44_What_time_of_th_call_for_emergencies": "8 hr",
+      "water_supply_patient_numbers/time_close": "8",
+      "water_supply_patient_numbers/most_important_need": "However, if you believe other factors are equally critical—such as more trained staff, additional equipment, or better water and sanitation—then you can mention those as well. But given the context of your previous questions about electricity, emphasizing the need for a dependable power source is likely the most relevant.",
+      "staffing_HR_roster/support_staff": "22",
+      "staffing_HR_roster/technical_staff": "16",
+      "staffing_HR_roster/staff_staying": "0",
+      "staffing_HR_roster/total_patient_number": "1000",
+      "staffing_HR_roster/separate_buidlings": "1",
+      "staffing_HR_roster/buidlings_staff": "22",
+      "staffing_HR_roster/housing_power_access": "2",
+      "number_departments": "2",
+      "group_department_count": "2",
+      "group_department": [
+        {
+          "group_department/department_position": "1",
+          "group_department/Which_departments_have_electri_001": "other_opd_rooms",
+          "group_department/rooms_number": "1"
+        },
+        {
+          "group_department/department_position": "2",
+          "group_department/Which_departments_have_electri_001": "other_opd_rooms",
+          "group_department/rooms_number": "2"
+        }
+      ],
+      "group_electric_equipment_count": "2",
+      "group_electric_equipment": [
+        {
+          "group_electric_equipment/medical_department": "other_opd_rooms",
+          "group_electric_equipment/electric_equip_number": "2",
+          "group_electric_equipment/numb_elec_equip_depart_count": "2",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "lab_incubator",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "2",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "dry_steriliser",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "2",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        },
+        {
+          "group_electric_equipment/medical_department": "other_opd_rooms",
+          "group_electric_equipment/electric_equip_number": "2",
+          "group_electric_equipment/numb_elec_equip_depart_count": "2",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "8",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8hr",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "2",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "mobile_phone",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8hr",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        }
+      ],
+      "electric_needs_technology/sockets_needed": "3",
+      "electric_needs_technology/Q136_Which_equipmen_electricity_on_site": "Laboratory and Diagnostic tools and sterilization and infection control",
+      "electric_needs_technology/road_access": "4",
+      "__version__": "vNNhnw8Pg97azpgbbEANzh",
+      "meta/instanceID": "uuid:3e20c8de-102a-4b6f-8ac5-fcc0358671bd",
+      "_xform_id_string": "aPefWkJpTpYTWvGb5GG7Mz",
+      "_uuid": "3e20c8de-102a-4b6f-8ac5-fcc0358671bd",
+      "_attachments": [
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/3e20c8de-102a-4b6f-8ac5-fcc0358671bd/signature-9_49_36.png",
+          "instance": 643695471,
+          "xform": 1816608,
+          "id": 281374800,
+          "uid": "att2f2orfyd5QvPYDuAnSoCg",
+          "media_file_basename": "signature-9_49_36.png",
+          "question_xpath": "general_information/Interviewer_s_signature"
+        }
+      ],
+      "_status": "submitted_via_web",
+      "_geolocation": [
+        3.110254,
+        43.664173
+      ],
+      "_submission_time": "2025-02-13T06:52:51",
+      "_tags": [],
+      "_notes": [],
+      "_validation_status": {},
+      "_submitted_by": null,
+      "meta/rootUuid": "uuid:3e20c8de-102a-4b6f-8ac5-fcc0358671bd"
+    }
+  },
+  "error": null,
+  "endTime": "2025-07-29T05:47:02.646Z"
+}

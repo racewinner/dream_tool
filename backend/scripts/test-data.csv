@@ -1,0 +1,4 @@
+facility_id,facility_name,location,electricity_source,transport_access
+1,Health Center A,Rural Village 1,solar,motorcycle
+2,School B,Urban Area 2,grid,car
+3,Clinic C,Remote Area 3,generator,walking

@@ -1,0 +1,154 @@
+import { Sequelize, ModelStatic } from 'sequelize';
+import dotenv from 'dotenv';
+// Import model initializers and types
+import { initUserModel, UserInstance } from './user';
+import { initFacilityModel, FacilityInstance } from './facility';
+import { initAssetModel, AssetInstance } from './asset';
+import { initEquipmentModel, EquipmentInstance } from './equipment';
+import { initSurveyModel, SurveyInstance } from './survey';
+import { initSurveyVersionModel, SurveyVersionInstance } from './surveyVersion';
+import { initMaintenanceModel, MaintenanceInstance } from './maintenance';
+import { initMaintenanceRecordModel, MaintenanceRecordInstance } from './maintenanceRecord';
+import { initSolarSystemModel, SolarSystemInstance } from './solarSystem';
+import { initTechnoEconomicAnalysisModel, TechnoEconomicAnalysisInstance } from './technoEconomicAnalysis';
+import { initWeatherModel, WeatherInstance } from './weather';
+import { initWhatsAppModel, WhatsAppInstance } from './whatsapp';
+
+dotenv.config();
+
+console.log('Initializing database connection with config:', {
+  host: process.env.DB_HOST || 'localhost',
+  port: process.env.DB_PORT || '5432',
+  username: process.env.DB_USER || 'postgres',
+  database: process.env.DB_NAME || 'dream_tool',
+  password: process.env.DB_PASSWORD ? '***' : 'not set'
+});
+
+const sequelize = new Sequelize({
+  dialect: 'postgres',
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432', 10),
+  username: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'password123',
+  database: process.env.DB_NAME || 'dream_tool',
+  logging: process.env.NODE_ENV === 'development' ? console.log : false,
+  define: {
+    timestamps: true,
+    underscored: true,
+    freezeTableName: true,
+  },
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+  retry: {
+    max: 3,
+    timeout: 30000, // 30 seconds
+  }
+});
+
+// Test the database connection
+async function testConnection() {
+  try {
+    await sequelize.authenticate();
+    console.log('Database connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+    process.exit(1); // Exit with error if we can't connect to the database
+  }
+}
+
+// Call the test connection function
+testConnection();
+
+// Initialize models
+type ModelType = {
+  [key: string]: ModelStatic<any>;
+};
+
+// Initialize models with the sequelize instance
+const models: ModelType = {
+  User: initUserModel(sequelize),
+  Facility: initFacilityModel(sequelize),
+  Asset: initAssetModel(sequelize),
+  Equipment: initEquipmentModel(sequelize),
+  Survey: initSurveyModel(sequelize),
+  SurveyVersion: initSurveyVersionModel(sequelize),
+  Maintenance: initMaintenanceModel(sequelize),
+  MaintenanceRecord: initMaintenanceRecordModel(sequelize),
+  SolarSystem: initSolarSystemModel(sequelize),
+  TechnoEconomicAnalysis: initTechnoEconomicAnalysisModel(sequelize),
+  Weather: initWeatherModel(sequelize),
+  WhatsApp: initWhatsAppModel(sequelize)
+};
+
+// Extract model instances for easier access
+const {
+  User,
+  Facility,
+  Asset,
+  Equipment,
+  Survey,
+  SurveyVersion,
+  Maintenance,
+  MaintenanceRecord,
+  SolarSystem,
+  TechnoEconomicAnalysis,
+  Weather,
+  WhatsApp
+} = models;
+
+// Define associations
+// User associations
+User.hasMany(Facility, { foreignKey: 'userId' });
+User.hasMany(Survey, { foreignKey: 'createdBy' });
+
+// Facility associations
+Facility.belongsTo(User, { foreignKey: 'userId' });
+Facility.hasMany(Asset, { foreignKey: 'facilityId' });
+Facility.hasMany(Survey, { foreignKey: 'facilityId' });
+Facility.hasMany(SolarSystem, { foreignKey: 'facilityId' });
+Facility.hasMany(Weather, { foreignKey: 'facilityId' });
+
+// Survey associations
+Survey.belongsTo(Facility, { foreignKey: 'facilityId' });
+Survey.hasMany(SurveyVersion, { foreignKey: 'surveyId' });
+
+// SurveyVersion associations
+SurveyVersion.belongsTo(Survey, { foreignKey: 'surveyId' });
+
+// SolarSystem associations
+SolarSystem.belongsTo(Facility, { foreignKey: 'facilityId' });
+SolarSystem.hasMany(Maintenance, { foreignKey: 'systemId' });
+SolarSystem.hasOne(TechnoEconomicAnalysis, { foreignKey: 'systemId' });
+
+// Maintenance associations
+Maintenance.belongsTo(SolarSystem, { foreignKey: 'systemId' });
+Maintenance.hasMany(MaintenanceRecord, { foreignKey: 'maintenanceId' });
+
+// MaintenanceRecord associations
+MaintenanceRecord.belongsTo(Maintenance, { foreignKey: 'maintenanceId' });
+
+// TechnoEconomicAnalysis associations
+TechnoEconomicAnalysis.belongsTo(SolarSystem, { foreignKey: 'systemId' });
+
+// Weather associations
+Weather.belongsTo(Facility, { foreignKey: 'facilityId' });
+
+export {
+  sequelize,
+  User,
+  Facility,
+  Asset,
+  Equipment,
+  Survey,
+  SurveyVersion,
+  Maintenance,
+  MaintenanceRecord,
+  SolarSystem,
+  TechnoEconomicAnalysis,
+  Weather,
+  WhatsApp,
+};

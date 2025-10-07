@@ -1,0 +1,3 @@
+facility_id,facility_name,region,district,electricity_source
+test_001,Test Health Center,Central,Kampala,solar
+test_002,Community Clinic,Western,Mbarara,diesel generator

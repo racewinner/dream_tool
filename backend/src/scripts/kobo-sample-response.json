@@ -1,0 +1,828 @@
+{
+  "count": 6,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "_id": 643695471,
+      "formhub/uuid": "f9be92d2957142acad970978ce3de179",
+      "start": "2025-02-13T09:03:14.879+03:00",
+      "end": "2025-02-13T09:52:45.916+03:00",
+      "general_information/I_hereby_consent_to_participat": "OK",
+      "general_information/Interviewee_s_signature": "signature-9_49_27.png",
+      "general_information/Interviewer_s_signature": "signature-9_49_36.png",
+      "general_information/Enumerator_s_name": "Nafiso Aadan Abdirahman",
+      "general_information/date": "2025-02-13",
+      "general_information/Q2_Enter_a_time": "09:03:00.000+03:00",
+      "general_information/location": "3.110254 43.664173 386 19",
+      "general_information/clinical_cadre": "Clinical Officer",
+      "general_information/Name_HF": "Kalmo MCH",
+      "general_information/Q3_Region": "Bay",
+      "general_information/Q9_District": "Baidoa",
+      "general_information/type_healthcare_facility": "2",
+      "general_information/ownership_facility": "1",
+      "general_information/operating_days_of": "3",
+      "health_services/general_clinical_services": "1 4 5 6 10 15 18 21",
+      "power_supply_quality/main_electricity": "5",
+      "power_supply_quality/section_electrified": "1",
+      "power_supply_quality/Q15_Is_the_electric_e_facility_reliable_": "2",
+      "power_supply_quality/Electricity_hours_access": "0",
+      "power_supply_quality/power_interruption_number": "0",
+      "power_supply_quality/power_interruption_duration": "0",
+      "power_supply_quality/Electricity_bill": "0",
+      "power_supply_quality/electricity_bill_payment": "6",
+      "power_supply_quality/challenge_primary_source": "5",
+      "power_supply_quality/secondary_elect_source_001": "8",
+      "communication/functioning_mobile_stff": "2",
+      "communication/Q35_Does_this_facil_eed_internet_access": "2",
+      "communication/digital_reporting_frequency": "4",
+      "water_supply_patient_numbers/water_pumps_num": "88",
+      "water_supply_patient_numbers/water_source_available": "5",
+      "water_supply_patient_numbers/water_treatment_type": "2",
+      "water_supply_patient_numbers/facility_patients": "1",
+      "water_supply_patient_numbers/Q44_What_time_of_th_call_for_emergencies": "8 hr",
+      "water_supply_patient_numbers/time_close": "8",
+      "water_supply_patient_numbers/most_important_need": "However, if you believe other factors are equally critical—such as more trained staff, additional equipment, or better water and sanitation—then you can mention those as well. But given the context of your previous questions about electricity, emphasizing the need for a dependable power source is likely the most relevant.",
+      "staffing_HR_roster/support_staff": "22",
+      "staffing_HR_roster/technical_staff": "16",
+      "staffing_HR_roster/staff_staying": "0",
+      "staffing_HR_roster/total_patient_number": "1000",
+      "staffing_HR_roster/separate_buidlings": "1",
+      "staffing_HR_roster/buidlings_staff": "22",
+      "staffing_HR_roster/housing_power_access": "2",
+      "number_departments": "2",
+      "group_department_count": "2",
+      "group_department": [
+        {
+          "group_department/department_position": "1",
+          "group_department/Which_departments_have_electri_001": "other_opd_rooms",
+          "group_department/rooms_number": "1"
+        },
+        {
+          "group_department/department_position": "2",
+          "group_department/Which_departments_have_electri_001": "other_opd_rooms",
+          "group_department/rooms_number": "2"
+        }
+      ],
+      "group_electric_equipment_count": "2",
+      "group_electric_equipment": [
+        {
+          "group_electric_equipment/medical_department": "other_opd_rooms",
+          "group_electric_equipment/electric_equip_number": "2",
+          "group_electric_equipment/numb_elec_equip_depart_count": "2",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "lab_incubator",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "2",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "dry_steriliser",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "2",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        },
+        {
+          "group_electric_equipment/medical_department": "other_opd_rooms",
+          "group_electric_equipment/electric_equip_number": "2",
+          "group_electric_equipment/numb_elec_equip_depart_count": "2",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "8",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8hr",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "2",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "mobile_phone",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "8hr",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        }
+      ],
+      "electric_needs_technology/sockets_needed": "3",
+      "electric_needs_technology/Q136_Which_equipmen_electricity_on_site": "Laboratory and Diagnostic tools and sterilization and infection control",
+      "electric_needs_technology/road_access": "4",
+      "__version__": "vNNhnw8Pg97azpgbbEANzh",
+      "meta/instanceID": "uuid:3e20c8de-102a-4b6f-8ac5-fcc0358671bd",
+      "_xform_id_string": "aPefWkJpTpYTWvGb5GG7Mz",
+      "_uuid": "3e20c8de-102a-4b6f-8ac5-fcc0358671bd",
+      "_attachments": [
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/643695471/attachments/281374800/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/3e20c8de-102a-4b6f-8ac5-fcc0358671bd/signature-9_49_36.png",
+          "instance": 643695471,
+          "xform": 1816608,
+          "id": 281374800,
+          "uid": "att2f2orfyd5QvPYDuAnSoCg",
+          "media_file_basename": "signature-9_49_36.png",
+          "question_xpath": "general_information/Interviewer_s_signature"
+        }
+      ],
+      "_status": "submitted_via_web",
+      "_geolocation": [
+        3.110254,
+        43.664173
+      ],
+      "_submission_time": "2025-02-13T06:52:51",
+      "_tags": [],
+      "_notes": [],
+      "_validation_status": {},
+      "_submitted_by": null,
+      "meta/rootUuid": "uuid:3e20c8de-102a-4b6f-8ac5-fcc0358671bd"
+    },
+    {
+      "_id": 644978120,
+      "formhub/uuid": "f9be92d2957142acad970978ce3de179",
+      "start": "2025-02-18T11:05:29.019+03:00",
+      "end": "2025-02-18T11:36:22.275+03:00",
+      "general_information/I_hereby_consent_to_participat": "OK",
+      "general_information/Interviewee_s_signature": "signature-11_6_0.png",
+      "general_information/Interviewer_s_signature": "signature-11_6_7.png",
+      "general_information/Enumerator_s_name": "Najib Ali Mohamed",
+      "general_information/date": "2025-02-18",
+      "general_information/Q2_Enter_a_time": "11:06:00.000+03:00",
+      "general_information/location": "6.434681 46.459016 371.11522483825684 81.49971260894858",
+      "general_information/clinical_cadre": "Director",
+      "general_information/Name_HF": "Dhabad General Hospital",
+      "general_information/Q3_Region": "Galgaduud",
+      "general_information/Q9_District": "Dhabad",
+      "general_information/type_healthcare_facility": "2",
+      "general_information/ownership_facility": "1",
+      "general_information/operating_days_of": "4",
+      "health_services/general_clinical_services": "1 2 3 4 5 6 7 10 11 12 13 15 17 18 21 22 24 29",
+      "power_supply_quality/main_electricity": "3",
+      "power_supply_quality/section_electrified": "1",
+      "power_supply_quality/Q15_Is_the_electric_e_facility_reliable_": "2",
+      "power_supply_quality/Electricity_hours_access": "7",
+      "power_supply_quality/challenge_primary_source": "1",
+      "power_supply_quality/secondary_elect_source_001": "7",
+      "power_supply_quality/Maintenance_provider": "Care Ngo , WHO",
+      "power_supply_quality/maintenance_plan": "5",
+      "communication/functioning_mobile_stff": "2",
+      "communication/Q35_Does_this_facil_eed_internet_access": "2",
+      "communication/digital_reporting_frequency": "4",
+      "water_supply_patient_numbers/water_pumps_num": "888",
+      "water_supply_patient_numbers/water_source_available": "6",
+      "water_supply_patient_numbers/water_treatment_type": "2",
+      "water_supply_patient_numbers/facility_patients": "2",
+      "water_supply_patient_numbers/beds": "8",
+      "water_supply_patient_numbers/Q44_What_time_of_th_call_for_emergencies": "7:00 am",
+      "water_supply_patient_numbers/time_close": "4",
+      "water_supply_patient_numbers/most_important_need": "Drugs , water source, training , payments, rehabilitation",
+      "staffing_HR_roster/support_staff": "12",
+      "staffing_HR_roster/technical_staff": "8",
+      "staffing_HR_roster/staff_staying": "4",
+      "staffing_HR_roster/total_patient_number": "250",
+      "staffing_HR_roster/separate_buidlings": "3",
+      "staffing_HR_roster/buidlings_staff": "3",
+      "staffing_HR_roster/housing_power_access": "2",
+      "number_departments": "1",
+      "group_department_count": "1",
+      "group_department": [
+        {
+          "group_department/department_position": "1",
+          "group_department/Which_departments_have_electri_001": "gen_ward",
+          "group_department/rooms_number": "5"
+        }
+      ],
+      "group_electric_equipment_count": "1",
+      "group_electric_equipment": [
+        {
+          "group_electric_equipment/medical_department": "gen_ward",
+          "group_electric_equipment/electric_equip_number": "3",
+          "group_electric_equipment/numb_elec_equip_depart_count": "3",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "incubator",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "4",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "3",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "always_on",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "2",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "oxy_conc",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "8",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "2",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "3",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "pul_oximeter",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "3",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "4",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn_after",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        }
+      ],
+      "electric_needs_technology/sockets_needed": "7 13 14 18 19",
+      "electric_needs_technology/Q136_Which_equipmen_electricity_on_site": "Oxygen concentration machine",
+      "electric_needs_technology/road_access": "4",
+      "electric_needs_technology/solar_pv_inverter": "image-11_33_18.jpg",
+      "__version__": "vNNhnw8Pg97azpgbbEANzh",
+      "meta/instanceID": "uuid:bbe074a0-d1f1-4bcc-802f-d2fcaf0e8372",
+      "_xform_id_string": "aPefWkJpTpYTWvGb5GG7Mz",
+      "_uuid": "bbe074a0-d1f1-4bcc-802f-d2fcaf0e8372",
+      "_attachments": [
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/644978120/attachments/281953813/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/644978120/attachments/281953813/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/644978120/attachments/281953813/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/644978120/attachments/281953813/small/",
+          "mimetype": "image/jpeg",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/bbe074a0-d1f1-4bcc-802f-d2fcaf0e8372/image-11_33_18.jpg",
+          "instance": 644978120,
+          "xform": 1816608,
+          "id": 281953813,
+          "uid": "attY8mFCRwQz2EBNAmxaPRyF",
+          "media_file_basename": "image-11_33_18.jpg",
+          "question_xpath": "electric_needs_technology/solar_pv_inverter"
+        }
+      ],
+      "_status": "submitted_via_web",
+      "_geolocation": [
+        6.434681,
+        46.459016
+      ],
+      "_submission_time": "2025-02-18T08:36:24",
+      "_tags": [],
+      "_notes": [],
+      "_validation_status": {},
+      "_submitted_by": null,
+      "meta/rootUuid": "uuid:bbe074a0-d1f1-4bcc-802f-d2fcaf0e8372"
+    },
+    {
+      "_id": 645553819,
+      "formhub/uuid": "f9be92d2957142acad970978ce3de179",
+      "start": "2025-02-19T21:11:39.476+03:00",
+      "end": "2025-02-19T21:42:34.689+03:00",
+      "general_information/I_hereby_consent_to_participat": "OK",
+      "general_information/Interviewee_s_signature": "signature-21_12_59.png",
+      "general_information/Interviewer_s_signature": "signature-21_13_3.png",
+      "general_information/Enumerator_s_name": "Farah Abdi Ugas",
+      "general_information/date": "2025-02-19",
+      "general_information/Q2_Enter_a_time": "21:15:00.000+03:00",
+      "general_information/location": "2.03817 45.31159 0 5992.914403806069",
+      "general_information/clinical_cadre": "Physician",
+      "general_information/Name_HF": "Xarardheere Hospital",
+      "general_information/Q3_Region": "Mudug",
+      "general_information/Q9_District": "Xaradheere",
+      "general_information/type_healthcare_facility": "4",
+      "general_information/ownership_facility": "1",
+      "general_information/operating_days_of": "1",
+      "health_services/general_clinical_services": "1 2 10 12 15 17 18",
+      "power_supply_quality/main_electricity": "1",
+      "power_supply_quality/section_electrified": "3",
+      "power_supply_quality/Q15_Is_the_electric_e_facility_reliable_": "1",
+      "power_supply_quality/Electricity_hours_access": "8",
+      "power_supply_quality/challenge_primary_source": "2 3 5",
+      "power_supply_quality/secondary_elect_source_001": "1",
+      "power_supply_quality/section_electrified_backup": "1",
+      "power_supply_quality/Genset_fuel_cost": "6000000",
+      "power_supply_quality/fuel_consumed": "50",
+      "power_supply_quality/Genset_servicing_cost": "1000000",
+      "power_supply_quality/Maintenance_provider": "the hospital and NGOs",
+      "power_supply_quality/maintenance_plan": "Maintenance is done three times a month",
+      "communication/functioning_mobile_stff": "1",
+      "communication/Q35_Does_this_facil_eed_internet_access": "3",
+      "communication/digital_reporting_frequency": "2",
+      "water_supply_patient_numbers/water_source_available": "2",
+      "water_supply_patient_numbers/water_treatment_type": "2",
+      "water_supply_patient_numbers/facility_patients": "2",
+      "water_supply_patient_numbers/beds": "9",
+      "water_supply_patient_numbers/Q44_What_time_of_th_call_for_emergencies": "8",
+      "water_supply_patient_numbers/most_important_need": "Solar panels, medical supplies, equipment and training for health staff",
+      "staffing_HR_roster/support_staff": "6",
+      "staffing_HR_roster/technical_staff": "3",
+      "staffing_HR_roster/staff_staying": "3",
+      "staffing_HR_roster/total_patient_number": "150",
+      "staffing_HR_roster/separate_buidlings": "5",
+      "staffing_HR_roster/buidlings_staff": "1",
+      "staffing_HR_roster/housing_power_access": "1",
+      "number_departments": "5",
+      "group_department_count": "5",
+      "group_department": [
+        {
+          "group_department/department_position": "1",
+          "group_department/Which_departments_have_electri_001": "lab_blood_bank"
+        },
+        {
+          "group_department/department_position": "2",
+          "group_department/Which_departments_have_electri_001": "lab_blood_bank"
+        },
+        {
+          "group_department/department_position": "3",
+          "group_department/Which_departments_have_electri_001": "gen_ward"
+        },
+        {
+          "group_department/department_position": "4",
+          "group_department/Which_departments_have_electri_001": "maternity_ward"
+        },
+        {
+          "group_department/department_position": "5",
+          "group_department/Which_departments_have_electri_001": "drugstor_pharm"
+        }
+      ],
+      "group_electric_equipment_count": "5",
+      "group_electric_equipment": [
+        {
+          "group_electric_equipment/medical_department": "lab_blood_bank",
+          "group_electric_equipment/electric_equip_number": "2",
+          "group_electric_equipment/numb_elec_equip_depart_count": "2",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "glucose_monitor",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "2",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "24",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "always_on",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "2",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "fridge_blood",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "24",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "always_on",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        },
+        {
+          "group_electric_equipment/medical_department": "lab_blood_bank"
+        },
+        {
+          "group_electric_equipment/medical_department": "gen_ward"
+        },
+        {
+          "group_electric_equipment/medical_department": "maternity_ward"
+        },
+        {
+          "group_electric_equipment/medical_department": "drugstor_pharm"
+        }
+      ],
+      "electric_needs_technology/sockets_needed": "1 2 3 4 5 6 7 10 11 13 14 16 18 19",
+      "electric_needs_technology/road_access": "4",
+      "__version__": "vNNhnw8Pg97azpgbbEANzh",
+      "meta/instanceID": "uuid:e8890cff-eb58-4786-9bba-abe7abec66a8",
+      "_xform_id_string": "aPefWkJpTpYTWvGb5GG7Mz",
+      "_uuid": "e8890cff-eb58-4786-9bba-abe7abec66a8",
+      "_attachments": [
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212327/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212327/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212327/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212327/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/e8890cff-eb58-4786-9bba-abe7abec66a8/signature-21_12_59.png",
+          "instance": 645553819,
+          "xform": 1816608,
+          "id": 282212327,
+          "uid": "attKithHDx5kXYnVxAR6hv9a",
+          "media_file_basename": "signature-21_12_59.png",
+          "question_xpath": "general_information/Interviewee_s_signature"
+        },
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212328/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212328/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212328/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645553819/attachments/282212328/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/e8890cff-eb58-4786-9bba-abe7abec66a8/signature-21_13_3.png",
+          "instance": 645553819,
+          "xform": 1816608,
+          "id": 282212328,
+          "uid": "atthXreBYVVU8xyXFLTdD992",
+          "media_file_basename": "signature-21_13_3.png",
+          "question_xpath": "general_information/Interviewer_s_signature"
+        }
+      ],
+      "_status": "submitted_via_web",
+      "_geolocation": [
+        2.03817,
+        45.31159
+      ],
+      "_submission_time": "2025-02-19T18:43:33",
+      "_tags": [],
+      "_notes": [],
+      "_validation_status": {},
+      "_submitted_by": null,
+      "meta/rootUuid": "uuid:e8890cff-eb58-4786-9bba-abe7abec66a8"
+    },
+    {
+      "_id": 645555841,
+      "formhub/uuid": "f9be92d2957142acad970978ce3de179",
+      "start": "2025-02-19T21:42:34.805+03:00",
+      "end": "2025-02-19T21:53:23.012+03:00",
+      "general_information/I_hereby_consent_to_participat": "OK",
+      "general_information/Interviewee_s_signature": "signature-21_52_22.png",
+      "general_information/Interviewer_s_signature": "signature-21_52_34.png",
+      "general_information/Enumerator_s_name": "Amina Yusuf",
+      "general_information/date": "2025-02-19",
+      "general_information/Q2_Enter_a_time": "13:45:00.000+03:00",
+      "general_information/location": "2.03817 45.31159 0 5992.914403806069",
+      "general_information/clinical_cadre": "Nurse",
+      "general_information/Name_HF": "Hobyo Hospital",
+      "general_information/Q3_Region": "Mudug",
+      "general_information/Q9_District": "Hobyo",
+      "general_information/type_healthcare_facility": "1",
+      "general_information/ownership_facility": "1",
+      "general_information/operating_days_of": "1",
+      "health_services/general_clinical_services": "1 2 3 5 10 15 18 26 29",
+      "power_supply_quality/main_electricity": "2",
+      "power_supply_quality/section_electrified": "2",
+      "power_supply_quality/Q15_Is_the_electric_e_facility_reliable_": "1",
+      "power_supply_quality/Electricity_hours_access": "7",
+      "power_supply_quality/challenge_primary_source": "1",
+      "power_supply_quality/secondary_elect_source_001": "1",
+      "power_supply_quality/section_electrified_backup": "2",
+      "power_supply_quality/Genset_fuel_cost": "50",
+      "power_supply_quality/fuel_consumed": "25",
+      "communication/functioning_mobile_stff": "1",
+      "communication/Q35_Does_this_facil_eed_internet_access": "2",
+      "communication/digital_reporting_frequency": "5",
+      "water_supply_patient_numbers/water_pumps_num": "1",
+      "water_supply_patient_numbers/water_source_available": "5",
+      "water_supply_patient_numbers/water_treatment_type": "2",
+      "water_supply_patient_numbers/facility_patients": "2",
+      "water_supply_patient_numbers/beds": "10",
+      "water_supply_patient_numbers/Q44_What_time_of_th_call_for_emergencies": "24",
+      "water_supply_patient_numbers/time_close": "24",
+      "water_supply_patient_numbers/most_important_need": "Solar panel, Electricity, Training for the health staff",
+      "staffing_HR_roster/support_staff": "5",
+      "staffing_HR_roster/technical_staff": "2",
+      "staffing_HR_roster/staff_staying": "2",
+      "staffing_HR_roster/total_patient_number": "120",
+      "staffing_HR_roster/separate_buidlings": "2",
+      "staffing_HR_roster/buidlings_staff": "1",
+      "staffing_HR_roster/housing_power_access": "1",
+      "number_departments": "1",
+      "group_department_count": "1",
+      "group_department": [
+        {
+          "group_department/department_position": "1",
+          "group_department/Which_departments_have_electri_001": "gen_ward",
+          "group_department/rooms_number": "1"
+        }
+      ],
+      "group_electric_equipment_count": "1",
+      "group_electric_equipment": [
+        {
+          "group_electric_equipment/medical_department": "gen_ward",
+          "group_electric_equipment/electric_equip_number": "1",
+          "group_electric_equipment/numb_elec_equip_depart_count": "1",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "lab_incubator",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "24",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "always_on",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        }
+      ],
+      "electric_needs_technology/sockets_needed": "1",
+      "electric_needs_technology/road_access": "4",
+      "electric_needs_technology/batteries_number": "0",
+      "__version__": "vNNhnw8Pg97azpgbbEANzh",
+      "meta/instanceID": "uuid:bcba06b7-9483-4b68-9a75-f197f66b39a5",
+      "_xform_id_string": "aPefWkJpTpYTWvGb5GG7Mz",
+      "_uuid": "bcba06b7-9483-4b68-9a75-f197f66b39a5",
+      "_attachments": [
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213772/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213772/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213772/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213772/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/bcba06b7-9483-4b68-9a75-f197f66b39a5/signature-21_52_22.png",
+          "instance": 645555841,
+          "xform": 1816608,
+          "id": 282213772,
+          "uid": "attuKyvXyjuch8bKhEoEgPAC",
+          "media_file_basename": "signature-21_52_22.png",
+          "question_xpath": "general_information/Interviewee_s_signature"
+        },
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213773/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213773/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213773/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645555841/attachments/282213773/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/bcba06b7-9483-4b68-9a75-f197f66b39a5/signature-21_52_34.png",
+          "instance": 645555841,
+          "xform": 1816608,
+          "id": 282213773,
+          "uid": "attjLCPADWgpXvck3EGxEAnc",
+          "media_file_basename": "signature-21_52_34.png",
+          "question_xpath": "general_information/Interviewer_s_signature"
+        }
+      ],
+      "_status": "submitted_via_web",
+      "_geolocation": [
+        2.03817,
+        45.31159
+      ],
+      "_submission_time": "2025-02-19T18:53:24",
+      "_tags": [],
+      "_notes": [],
+      "_validation_status": {},
+      "_submitted_by": null,
+      "meta/rootUuid": "uuid:bcba06b7-9483-4b68-9a75-f197f66b39a5"
+    },
+    {
+      "_id": 645558711,
+      "formhub/uuid": "f9be92d2957142acad970978ce3de179",
+      "start": "2025-02-19T21:53:23.117+03:00",
+      "end": "2025-02-19T22:11:34.102+03:00",
+      "general_information/I_hereby_consent_to_participat": "OK",
+      "general_information/Interviewee_s_signature": "signature-21_54_41.png",
+      "general_information/Interviewer_s_signature": "signature-21_55_28.png",
+      "general_information/Enumerator_s_name": "Abdi Hassan Sulaiman",
+      "general_information/date": "2025-02-17",
+      "general_information/Q2_Enter_a_time": "10:00:00.000+03:00",
+      "general_information/location": "5.308965 45.879122 0 0",
+      "general_information/clinical_cadre": "Paeditrian",
+      "general_information/Name_HF": "Guri Ceel",
+      "general_information/Q3_Region": "Galgudud",
+      "general_information/Q9_District": "Dhusamreb",
+      "general_information/type_healthcare_facility": "2",
+      "general_information/ownership_facility": "1",
+      "general_information/operating_days_of": "3",
+      "health_services/general_clinical_services": "3 15 22",
+      "power_supply_quality/main_electricity": "1",
+      "power_supply_quality/section_electrified": "2",
+      "power_supply_quality/Q15_Is_the_electric_e_facility_reliable_": "3",
+      "power_supply_quality/Electricity_hours_access": "12",
+      "power_supply_quality/challenge_primary_source": "2 3",
+      "power_supply_quality/secondary_elect_source_001": "7",
+      "power_supply_quality/Genset_fuel_cost": "6250000",
+      "power_supply_quality/fuel_consumed": "125",
+      "power_supply_quality/Genset_servicing_cost": "75000000",
+      "power_supply_quality/Maintenance_provider": "Local technician",
+      "communication/functioning_mobile_stff": "2",
+      "communication/Q35_Does_this_facil_eed_internet_access": "2",
+      "communication/digital_reporting_frequency": "2",
+      "water_supply_patient_numbers/water_pumps_num": "888",
+      "water_supply_patient_numbers/water_source_available": "9",
+      "water_supply_patient_numbers/water_treatment_type": "4",
+      "water_supply_patient_numbers/facility_patients": "1",
+      "water_supply_patient_numbers/Q44_What_time_of_th_call_for_emergencies": "7:00",
+      "water_supply_patient_numbers/time_close": "500",
+      "water_supply_patient_numbers/most_important_need": "funding, electicity, water supply, man power",
+      "staffing_HR_roster/support_staff": "12",
+      "staffing_HR_roster/technical_staff": "4",
+      "staffing_HR_roster/staff_staying": "0",
+      "staffing_HR_roster/total_patient_number": "70",
+      "staffing_HR_roster/separate_buidlings": "4",
+      "staffing_HR_roster/buidlings_staff": "0",
+      "staffing_HR_roster/housing_power_access": "2",
+      "number_departments": "4",
+      "group_department_count": "4",
+      "group_department": [
+        {
+          "group_department/department_position": "1",
+          "group_department/Which_departments_have_electri_001": "consult_room",
+          "group_department/rooms_number": "1"
+        },
+        {
+          "group_department/department_position": "2",
+          "group_department/Which_departments_have_electri_001": "other_opd_rooms",
+          "group_department/rooms_number": "2"
+        },
+        {
+          "group_department/department_position": "3",
+          "group_department/Which_departments_have_electri_001": "mch",
+          "group_department/rooms_number": "1"
+        },
+        {
+          "group_department/department_position": "4",
+          "group_department/Which_departments_have_electri_001": "others",
+          "group_department/Explain_further": "waiting room",
+          "group_department/rooms_number": "o"
+        }
+      ],
+      "group_electric_equipment_count": "4",
+      "group_electric_equipment": [
+        {
+          "group_electric_equipment/medical_department": "consult_room",
+          "group_electric_equipment/electric_equip_number": "3",
+          "group_electric_equipment/numb_elec_equip_depart_count": "3",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "printer",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "1",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "10",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "2",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "dry_steriliser",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "0",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "0",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            },
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "3",
+              "group_electric_equipment/numb_elec_equip_depart/Select_all_the_electric_medica": "ceiling_fan",
+              "group_electric_equipment/numb_elec_equip_depart/equip_number": "4",
+              "group_electric_equipment/numb_elec_equip_depart/equip_hours_use": "6",
+              "group_electric_equipment/numb_elec_equip_depart/time_of_use": "morn",
+              "group_electric_equipment/numb_elec_equip_depart/Q64_How_often_do_yo_e_selected_equipment": "Daily"
+            }
+          ]
+        },
+        {
+          "group_electric_equipment/medical_department": "other_opd_rooms",
+          "group_electric_equipment/electric_equip_number": "0",
+          "group_electric_equipment/numb_elec_equip_depart_count": "0"
+        },
+        {
+          "group_electric_equipment/medical_department": "mch",
+          "group_electric_equipment/electric_equip_number": "0",
+          "group_electric_equipment/numb_elec_equip_depart_count": "0"
+        },
+        {
+          "group_electric_equipment/medical_department": "others",
+          "group_electric_equipment/electric_equip_number": "0",
+          "group_electric_equipment/numb_elec_equip_depart_count": "0"
+        }
+      ],
+      "electric_needs_technology/sockets_needed": "6",
+      "electric_needs_technology/Q136_Which_equipmen_electricity_on_site": "laptop, printer, ceiling fan",
+      "electric_needs_technology/road_access": "4",
+      "__version__": "vNNhnw8Pg97azpgbbEANzh",
+      "meta/instanceID": "uuid:5ca505c6-ef04-4e37-aeef-a385f9f7b46b",
+      "_xform_id_string": "aPefWkJpTpYTWvGb5GG7Mz",
+      "_uuid": "5ca505c6-ef04-4e37-aeef-a385f9f7b46b",
+      "_attachments": [
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215405/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215405/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215405/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215405/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/5ca505c6-ef04-4e37-aeef-a385f9f7b46b/signature-21_54_41.png",
+          "instance": 645558711,
+          "xform": 1816608,
+          "id": 282215405,
+          "uid": "attAWehCR6WPmEfaMPjjhJVd",
+          "media_file_basename": "signature-21_54_41.png",
+          "question_xpath": "general_information/Interviewee_s_signature"
+        },
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215406/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215406/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215406/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/645558711/attachments/282215406/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/5ca505c6-ef04-4e37-aeef-a385f9f7b46b/signature-21_55_28.png",
+          "instance": 645558711,
+          "xform": 1816608,
+          "id": 282215406,
+          "uid": "attGUyi3k9fJ6cXhyrykFgBk",
+          "media_file_basename": "signature-21_55_28.png",
+          "question_xpath": "general_information/Interviewer_s_signature"
+        }
+      ],
+      "_status": "submitted_via_web",
+      "_geolocation": [
+        5.308965,
+        45.879122
+      ],
+      "_submission_time": "2025-02-19T19:11:37",
+      "_tags": [],
+      "_notes": [],
+      "_validation_status": {},
+      "_submitted_by": null,
+      "meta/rootUuid": "uuid:5ca505c6-ef04-4e37-aeef-a385f9f7b46b"
+    },
+    {
+      "_id": 646333389,
+      "formhub/uuid": "f9be92d2957142acad970978ce3de179",
+      "start": "2025-02-13T09:52:46.065+03:00",
+      "end": "2025-02-23T11:26:02.952+03:00",
+      "general_information/I_hereby_consent_to_participat": "OK",
+      "general_information/Interviewee_s_signature": "signature-11_23_11.png",
+      "general_information/Interviewer_s_signature": "signature-11_23_49.png",
+      "general_information/Enumerator_s_name": "Nafiso Aadan Abdirahman",
+      "general_information/date": "2025-02-23",
+      "general_information/Q2_Enter_a_time": "11:08:00.000+03:00",
+      "general_information/location": "3.110285 43.664134 420 13",
+      "general_information/clinical_cadre": "Clinical officer",
+      "general_information/Name_HF": "Kaalmo MCH",
+      "general_information/Q3_Region": "Bay",
+      "general_information/Q9_District": "Baidoa",
+      "general_information/type_healthcare_facility": "2",
+      "general_information/ownership_facility": "1",
+      "general_information/operating_days_of": "1",
+      "health_services/general_clinical_services": "1 10 15 18",
+      "power_supply_quality/main_electricity": "6",
+      "power_supply_quality/source_of_lighting": "3",
+      "communication/functioning_mobile_stff": "3",
+      "communication/Q35_Does_this_facil_eed_internet_access": "3",
+      "communication/digital_reporting_frequency": "4",
+      "water_supply_patient_numbers/water_pumps_num": "3",
+      "water_supply_patient_numbers/water_source_available": "9",
+      "water_supply_patient_numbers/water_treatment_type": "1",
+      "water_supply_patient_numbers/facility_patients": "1",
+      "water_supply_patient_numbers/Q44_What_time_of_th_call_for_emergencies": "9 hour",
+      "water_supply_patient_numbers/time_close": "9",
+      "water_supply_patient_numbers/most_important_need": "Col gai",
+      "staffing_HR_roster/support_staff": "22",
+      "staffing_HR_roster/technical_staff": "22",
+      "staffing_HR_roster/staff_staying": "0",
+      "staffing_HR_roster/total_patient_number": "2000",
+      "staffing_HR_roster/separate_buidlings": "11",
+      "staffing_HR_roster/buidlings_staff": "11",
+      "staffing_HR_roster/housing_power_access": "2",
+      "number_departments": "0",
+      "group_department_count": "0",
+      "group_electric_equipment_count": "0",
+      "group_electric_equipment": [
+        {
+          "group_electric_equipment/electric_equip_number": "0",
+          "group_electric_equipment/numb_elec_equip_depart_count": "0",
+          "group_electric_equipment/numb_elec_equip_depart": [
+            {
+              "group_electric_equipment/numb_elec_equip_depart/elec_equip_numb_position": "1"
+            }
+          ]
+        }
+      ],
+      "electric_needs_technology/sockets_needed": "21",
+      "electric_needs_technology/Q136_Which_equipmen_electricity_on_site": "N/A",
+      "electric_needs_technology/road_access": "4",
+      "__version__": "vNNhnw8Pg97azpgbbEANzh",
+      "meta/instanceID": "uuid:bde9c022-3164-4342-93a1-aa7ac3e5a249",
+      "_xform_id_string": "aPefWkJpTpYTWvGb5GG7Mz",
+      "_uuid": "bde9c022-3164-4342-93a1-aa7ac3e5a249",
+      "_attachments": [
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542366/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542366/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542366/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542366/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/bde9c022-3164-4342-93a1-aa7ac3e5a249/signature-11_23_11.png",
+          "instance": 646333389,
+          "xform": 1816608,
+          "id": 282542366,
+          "uid": "att69WNNraazSwWonJnqVtn2",
+          "media_file_basename": "signature-11_23_11.png",
+          "question_xpath": "general_information/Interviewee_s_signature"
+        },
+        {
+          "download_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542367/",
+          "download_large_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542367/large/",
+          "download_medium_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542367/medium/",
+          "download_small_url": "https://eu.kobotoolbox.org/api/v2/assets/aPefWkJpTpYTWvGb5GG7Mz/data/646333389/attachments/282542367/small/",
+          "mimetype": "image/png",
+          "filename": "mpakravan_ge/attachments/f9be92d2957142acad970978ce3de179/bde9c022-3164-4342-93a1-aa7ac3e5a249/signature-11_23_49.png",
+          "instance": 646333389,
+          "xform": 1816608,
+          "id": 282542367,
+          "uid": "attDH88RKvjkJrVeNhMtRXN4",
+          "media_file_basename": "signature-11_23_49.png",
+          "question_xpath": "general_information/Interviewer_s_signature"
+        }
+      ],
+      "_status": "submitted_via_web",
+      "_geolocation": [
+        3.110285,
+        43.664134
+      ],
+      "_submission_time": "2025-02-23T08:26:05",
+      "_tags": [],
+      "_notes": [],
+      "_validation_status": {},
+      "_submitted_by": null,
+      "meta/rootUuid": "uuid:bde9c022-3164-4342-93a1-aa7ac3e5a249"
+    }
+  ]
+}

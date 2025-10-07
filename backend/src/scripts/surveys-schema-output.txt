@@ -1,0 +1,22 @@
+[2025-07-29T02:55:01.538Z] ===== Starting Surveys Table Schema Check =====
+[2025-07-29T02:55:01.609Z] Connected to the database
+[2025-07-29T02:55:01.658Z] 
+Surveys table structure:
+[2025-07-29T02:55:01.659Z] 
+Column Name          | Data Type          | Nullable | Default
+[2025-07-29T02:55:01.660Z] ---------------------|--------------------|----------|-----------
+[2025-07-29T02:55:01.661Z] id                   | integer            | NO       | nextval('surveys_id_seq'::regclass)
+[2025-07-29T02:55:01.662Z] externalId           | character varying  | NO       | NULL
+[2025-07-29T02:55:01.664Z] facilityId           | integer            | NO       | NULL
+[2025-07-29T02:55:01.666Z] facilityData         | json               | NO       | NULL
+[2025-07-29T02:55:01.666Z] collectionDate       | timestamp with time zone | NO       | NULL
+[2025-07-29T02:55:01.667Z] respondentId         | character varying  | YES      | NULL
+[2025-07-29T02:55:01.667Z] createdAt            | timestamp with time zone | NO       | NULL
+[2025-07-29T02:55:01.668Z] updatedAt            | timestamp with time zone | NO       | NULL
+[2025-07-29T02:55:01.668Z] createdBy            | integer            | YES      | NULL
+[2025-07-29T02:55:01.669Z] 
+Total columns:
+[2025-07-29T02:55:01.675Z] 
+Disconnected from the database
+[2025-07-29T02:55:01.676Z] 
+Check the complete output in: C:\Users\Olivia\DREAM_TOOL\backend\src\scripts\surveys-schema-output.txt

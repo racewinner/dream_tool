@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-08-04T18:21:15.633Z",
+  "status": 200,
+  "data": {
+    "success": false,
+    "imported": 0,
+    "failed": 6,
+    "message": "Imported 0 surveys, 6 failed",
+    "startDate": "2025-07-05T18:21:14.743Z",
+    "endDate": "2025-08-04T18:21:14.743Z"
+  },
+  "headers": {
+    "x-powered-by": "Express",
+    "vary": "Origin",
+    "access-control-allow-credentials": "true",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "158",
+    "etag": "W/\"9e-oZp4tsGkEM+ituFlD7xMydWFS5U\"",
+    "date": "Mon, 04 Aug 2025 18:21:15 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+  }
+}

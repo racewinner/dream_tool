@@ -1,0 +1,315 @@
+import axios from 'axios';
+import { API_CONFIG } from '../config/api';
+
+// Authentication API client
+const authApi = axios.create({
+  baseURL: API_CONFIG.BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+  withCredentials: true,
+  timeout: 10000, // 10 seconds
+});
+
+// Request interceptor
+authApi.interceptors.request.use(
+  (config) => {
+    console.log('Request URL:', config.baseURL, config.url);
+    console.log('Request Method:', config.method);
+    console.log('Request Headers:', config.headers);
+    return config;
+  },
+  (error) => {
+    console.error('Request Error:', error);
+    return Promise.reject(error);
+  }
+);
+
+// Response interceptor
+authApi.interceptors.response.use(
+  (response) => {
+    console.log('Response:', response.status, response.statusText);
+    return response;
+  },
+  (error) => {
+    console.error('Response Error:', {
+      message: error.message,
+      code: error.code,
+      config: {
+        url: error.config?.url,
+        method: error.config?.method,
+        baseURL: error.config?.baseURL,
+        data: error.config?.data,
+      },
+      response: error.response ? {
+        status: error.response.status,
+        statusText: error.response.statusText,
+        headers: error.response.headers,
+        data: error.response.data
+      } : 'No response',
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
+    return Promise.reject(error);
+  }
+);
+
+// Types for authentication
+export interface RegisterRequest {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  role?: string;
+}
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+  otp?: string; // For 2FA
+}
+
+export interface AuthResponse {
+  success: boolean;
+  user: {
+    id: number;
+    email: string;
+    firstName: string;
+    lastName: string;
+    role: string;
+    isVerified: boolean;
+    is2faEnabled: boolean;
+  };
+  token: string;
+  message?: string;
+}
+
+export interface RegisterResponse {
+  success: boolean;
+  user: {
+    id: number;
+    email: string;
+    firstName: string;
+    lastName: string;
+    role: string;
+    isVerified: boolean;
+    is2faEnabled: boolean;
+  };
+  message?: string;
+}
+
+export interface EmailVerificationRequest {
+  email: string;
+}
+
+export interface EmailVerificationResponse {
+  success: boolean;
+  message: string;
+}
+
+// Authentication Service
+export class AuthService {
+  /**
+   * Register a new user
+   */
+  static async register(userData: RegisterRequest): Promise<RegisterResponse> {
+    try {
+      console.log('Attempting to register user with data:', {
+        email: userData.email,
+        hasPassword: !!userData.password,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        role: userData.role
+      });
+      
+      const response = await authApi.post('/auth/register', userData);
+      console.log('Registration successful, response:', response.data);
+      return response.data;
+    } catch (error: any) {
+      const errorDetails = {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data,
+        message: error.message,
+        request: {
+          url: error.config?.url,
+          method: error.config?.method,
+          data: error.config?.data ? JSON.parse(error.config.data) : null
+        }
+      };
+      
+      console.error('Registration error details:', JSON.stringify(errorDetails, null, 2));
+      
+      // Extract the most specific error message available
+      let errorMessage = 'Registration failed. Please try again.';
+      
+      if (error.response?.data?.errors) {
+        // Handle validation errors
+        const errors = error.response.data.errors;
+        errorMessage = Object.values(errors).flat().join('\n');
+      } else if (error.response?.data?.message) {
+        errorMessage = error.response.data.message;
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
+      throw new Error(errorMessage);
+    }
+  }
+
+  /**
+   * Login user
+   */
+  static async login(credentials: LoginRequest): Promise<AuthResponse> {
+    try {
+      console.log('Attempting login with credentials:', {
+        email: credentials.email,
+        hasPassword: !!credentials.password,
+        hasOTP: !!credentials.otp
+      });
+      
+      const response = await authApi.post('/auth/login', credentials);
+      console.log('Login successful, response data:', response.data);
+      return response.data;
+    } catch (error: any) {
+      console.error('Login error details:', {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data,
+        message: error.message,
+        config: {
+          url: error.config?.url,
+          method: error.config?.method,
+          data: error.config?.data
+        }
+      });
+      
+      const errorMessage = error.response?.data?.message || 
+                         error.response?.data?.error || 
+                         error.message || 
+                         'Login failed';
+      throw new Error(errorMessage);
+    }
+  }
+
+  /**
+   * Logout user
+   */
+  static async logout(): Promise<void> {
+    try {
+      await authApi.post('/auth/logout');
+    } catch (error: any) {
+      // Logout should succeed even if API call fails
+      console.warn('Logout API call failed:', error.message);
+    }
+  }
+
+  /**
+   * Send email verification
+   */
+  static async sendEmailVerification(email: string): Promise<EmailVerificationResponse> {
+    try {
+      const response = await authApi.post('/email-verification/send', { email });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Failed to send verification email');
+    }
+  }
+
+  /**
+   * Verify email with token
+   */
+  static async verifyEmail(token: string): Promise<EmailVerificationResponse> {
+    try {
+      const response = await authApi.post('/email-verification/verify', { token });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Email verification failed');
+    }
+  }
+
+  /**
+   * Get current user profile (requires authentication)
+   */
+  static async getCurrentUser(token: string): Promise<AuthResponse['user']> {
+    try {
+      const response = await authApi.get('/auth/profile', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      return response.data.user;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Failed to get user profile');
+    }
+  }
+
+  /**
+   * Refresh authentication token
+   */
+  static async refreshToken(token: string): Promise<{ token: string }> {
+    try {
+      const response = await authApi.post('/auth/refresh', {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Token refresh failed');
+    }
+  }
+
+  /**
+   * Enable 2FA for user
+   */
+  static async enable2FA(token: string): Promise<{ qrCode: string; secret: string }> {
+    try {
+      const response = await authApi.post('/auth/2fa/enable', {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Failed to enable 2FA');
+    }
+  }
+
+  /**
+   * Disable 2FA for user
+   */
+  static async disable2FA(token: string, otp: string): Promise<EmailVerificationResponse> {
+    try {
+      const response = await authApi.post('/auth/2fa/disable', { otp }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Failed to disable 2FA');
+    }
+  }
+
+  /**
+   * Request password reset
+   */
+  static async requestPasswordReset(email: string): Promise<EmailVerificationResponse> {
+    try {
+      const response = await authApi.post('/auth/password-reset/request', { email });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Password reset request failed');
+    }
+  }
+
+  /**
+   * Reset password with token
+   */
+  static async resetPassword(token: string, newPassword: string): Promise<EmailVerificationResponse> {
+    try {
+      const response = await authApi.post('/auth/password-reset/confirm', { 
+        token, 
+        newPassword 
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Password reset failed');
+    }
+  }
+}
+
+export default AuthService;

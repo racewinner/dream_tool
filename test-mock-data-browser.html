@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mock Data Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .button { padding: 10px 20px; margin: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
+        .button:hover { background: #0056b3; }
+        .result { margin: 10px 0; padding: 10px; border: 1px solid #ccc; background: #f9f9f9; }
+        .success { border-color: #28a745; background: #d4edda; }
+        .error { border-color: #dc3545; background: #f8d7da; }
+    </style>
+</head>
+<body>
+    <h1>DREAM TOOL Mock Data Test</h1>
+    <p>This page tests the mock data creation endpoints to verify the import pipeline is working.</p>
+    
+    <button class="button" onclick="checkDataCount()">Check Current Data Count</button>
+    <button class="button" onclick="createMockData()">Create Mock Data</button>
+    <button class="button" onclick="clearData()">Clear All Data</button>
+    <button class="button" onclick="testImportEndpoint()">Test Import Endpoint</button>
+    
+    <div id="results"></div>
+
+    <script>
+        const API_BASE = 'http://localhost:3001';
+        
+        function addResult(message, isSuccess = true) {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `result ${isSuccess ? 'success' : 'error'}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}:</strong> ${message}`;
+            results.insertBefore(div, results.firstChild);
+        }
+        
+        async function checkDataCount() {
+            try {
+                addResult('Checking current data count...');
+                const response = await fetch(`${API_BASE}/api/mock-data/data-count`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    addResult(`Current data: ${data.data.surveys} surveys, ${data.data.facilities} facilities`, true);
+                } else {
+                    addResult(`Error: ${data.message}`, false);
+                }
+            } catch (error) {
+                addResult(`Network error: ${error.message}`, false);
+            }
+        }
+        
+        async function createMockData() {
+            try {
+                addResult('Creating mock data...');
+                const response = await fetch(`${API_BASE}/api/mock-data/create-mock-data`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    addResult(`✅ Mock data created: ${data.data.surveys} surveys, ${data.data.facilities} facilities`, true);
+                    addResult('🎉 You should now see data in the Survey Analysis Dashboard!', true);
+                } else {
+                    addResult(`❌ Error: ${data.message}`, false);
+                }
+            } catch (error) {
+                addResult(`❌ Network error: ${error.message}`, false);
+            }
+        }
+        
+        async function clearData() {
+            try {
+                addResult('Clearing all data...');
+                const response = await fetch(`${API_BASE}/api/mock-data/clear-data`, {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    addResult(`✅ Data cleared: ${data.deleted.surveys} surveys, ${data.deleted.facilities} facilities`, true);
+                } else {
+                    addResult(`❌ Error: ${data.message}`, false);
+                }
+            } catch (error) {
+                addResult(`❌ Network error: ${error.message}`, false);
+            }
+        }
+        
+        async function testImportEndpoint() {
+            try {
+                addResult('Testing import endpoint...');
+                const response = await fetch(`${API_BASE}/api/import/kobo/surveys`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        startDate: '2023-01-01',
+                        endDate: '2023-12-31'
+                    })
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    addResult(`✅ Import endpoint working: ${data.message}`, true);
+                } else {
+                    addResult(`⚠️ Import response: ${data.message}`, true);
+                }
+            } catch (error) {
+                addResult(`❌ Import endpoint error: ${error.message}`, false);
+            }
+        }
+        
+        // Auto-check data count on load
+        window.onload = function() {
+            addResult('🚀 Mock Data Test Page Loaded');
+            checkDataCount();
+        };
+    </script>
+</body>
+</html>

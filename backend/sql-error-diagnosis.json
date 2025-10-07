@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-08-04T18:23:24.867Z",
+  "duration": "887ms",
+  "response": {
+    "status": 200,
+    "data": {
+      "success": false,
+      "imported": 0,
+      "failed": 6,
+      "message": "Imported 0 surveys, 6 failed",
+      "startDate": "2025-07-05T18:23:22.009Z",
+      "endDate": "2025-08-04T18:23:22.009Z"
+    }
+  },
+  "sqlErrors": [],
+  "facilityLogs": [],
+  "surveyLogs": [],
+  "allLogs": [
+    {
+      "timestamp": "2025-08-04T18:23:21.978Z",
+      "type": "log",
+      "message": "\n🚀 Triggering KoboToolbox import with enhanced logging..."
+    },
+    {
+      "timestamp": "2025-08-04T18:23:22.865Z",
+      "type": "log",
+      "message": "\n📊 Import Response:"
+    },
+    {
+      "timestamp": "2025-08-04T18:23:22.865Z",
+      "type": "log",
+      "message": "Status: 200"
+    },
+    {
+      "timestamp": "2025-08-04T18:23:22.866Z",
+      "type": "log",
+      "message": "Duration: 887ms"
+    },
+    {
+      "timestamp": "2025-08-04T18:23:22.866Z",
+      "type": "log",
+      "message": "Data: {\n  \"success\": false,\n  \"imported\": 0,\n  \"failed\": 6,\n  \"message\": \"Imported 0 surveys, 6 failed\",\n  \"startDate\": \"2025-07-05T18:23:22.009Z\",\n  \"endDate\": \"2025-08-04T18:23:22.009Z\"\n}"
+    }
+  ]
+}

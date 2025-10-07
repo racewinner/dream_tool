@@ -1,0 +1,943 @@
+import { SurveyService } from '../../src/services/surveyService';
+import { createMockSurvey, createMockResponse } from '../utils/testUtils';
+import { 
+  Survey, 
+  Response, 
+  SurveyStats, 
+  EquipmentStats, 
+  SurveyMetadata, 
+  SurveyFilter,
+  Question,
+  Equipment,
+  SurveyStatus,
+  SurveyType
+} from '../../src/types/survey';
+import { describe, it, beforeEach, expect, jest } from '@jest/globals';
+
+// Mock the SurveyService module
+jest.mock('../../src/services/surveyService');
+
+describe('SurveyService', () => {
+  let service: SurveyService;
+  let mockSurvey: Survey;
+  let mockResponse: Response;
+  let mockEquipment: Equipment;
+
+  beforeEach(() => {
+    // Create a fresh instance of the mocked service
+    service = new SurveyService();
+    
+    // Reset all mocks
+    jest.clearAllMocks();
+
+    // Setup mock survey
+    mockSurvey = createMockSurvey();
+    
+    // Setup mock response
+    mockResponse = createMockResponse(mockSurvey.id);
+    
+    // Setup mock equipment
+    mockEquipment = {
+      id: 'eq-1',
+      name: 'Test Equipment',
+      type: 'SOLAR_PANEL',
+      category: 'Power Generation',
+      powerRating: 1000,
+      quantity: 1,
+      hoursPerDay: 8,
+      hoursPerNight: 0,
+      timeOfDay: 'DAY',
+      weeklyUsage: 5,
+      critical: true,
+      maintenanceSchedule: {
+        frequency: 'QUARTERLY',
+        lastMaintenance: new Date(),
+        nextMaintenance: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000) // 90 days from now
+      }
+    };
+
+    // Setup default mock implementations
+    (service.initializeService as jest.Mock).mockResolvedValue(undefined);
+    (service.loadSurveys as jest.Mock).mockResolvedValue([mockSurvey]);
+    (service.loadResponses as jest.Mock).mockResolvedValue([mockResponse]);
+    
+    // Mock createSurvey
+    (service.createSurvey as jest.Mock).mockImplementation(async (survey: Survey) => ({
+      ...survey,
+      id: 'new-survey-id',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      status: SurveyStatus.DRAFT,
+      responses: []
+    }));
+
+    // Mock updateSurvey
+    (service.updateSurvey as jest.Mock).mockImplementation(async (id: string, updates: Partial<Survey>) => {
+      if (id !== mockSurvey.id) {
+        throw new Error('Survey not found');
+      }
+      return {
+        ...mockSurvey,
+        ...updates,
+        updatedAt: new Date()
+      };
+    });
+
+    // Mock deleteSurvey
+    (service.deleteSurvey as jest.Mock).mockImplementation(async (id: string) => {
+      if (id !== mockSurvey.id) {
+        throw new Error('Survey not found');
+      }
+      return true;
+    });
+
+    // Mock getSurvey
+    (service.getSurvey as jest.Mock).mockImplementation(async (id: string) => {
+      if (id === mockSurvey.id) {
+        return mockSurvey;
+      }
+      throw new Error('Survey not found');
+    });
+
+    // Mock getSurveys
+    (service.getSurveys as jest.Mock).mockImplementation(async (filter?: SurveyFilter) => {
+      if (filter?.status) {
+        return [mockSurvey].filter(s => s.status === filter.status);
+      }
+      return [mockSurvey];
+    });
+
+    // Mock createResponse
+    (service.createResponse as jest.Mock).mockImplementation(async (response: Response) => ({
+      ...response,
+      id: 'new-response-id',
+      submittedAt: new Date(),
+      status: 'COMPLETED'
+    }));
+
+    // Mock getResponses
+    (service.getResponses as jest.Mock).mockImplementation(async (surveyId: string) => {
+      if (surveyId === mockSurvey.id) {
+        return [mockResponse];
+      }
+      return [];
+    });
+
+    // Mock getStats
+    (service.getStats as jest.Mock).mockResolvedValue({
+      total: 1,
+      completed: 1,
+      draft: 0,
+      responseRate: 100,
+      completionRate: 100,
+      averageDailyUsage: 8,
+      peakHours: 14,
+      equipmentCount: 1,
+      criticalEquipment: 1,
+      averageDuration: 30,
+      errorRate: 0
+    });
+
+    // Mock getEquipmentStats
+    (service.getEquipmentStats as jest.Mock).mockResolvedValue([
+      {
+        category: 'Power Generation',
+        count: 1,
+        totalPower: 1000,
+        averageUsage: 8,
+        criticalCount: 1,
+        maintenanceDue: 1
+      }
+    ]);
+  });
+
+  describe('Initialization', () => {
+    it('should initialize the service', async () => {
+      await service.initializeService();
+      expect(service.initializeService).toHaveBeenCalled();
+    });
+
+    it('should load surveys on initialization', async () => {
+      await service.loadSurveys();
+      expect(service.loadSurveys).toHaveBeenCalled();
+    });
+
+    it('should load responses on initialization', async () => {
+      await service.loadResponses();
+      expect(service.loadResponses).toHaveBeenCalled();
+    });
+  });
+
+  describe('Survey CRUD Operations', () => {
+    it('should create a new survey', async () => {
+      const newSurvey = await service.createSurvey(mockSurvey);
+      expect(newSurvey).toBeDefined();
+      expect(newSurvey.id).toBe('new-survey-id');
+      expect(service.createSurvey).toHaveBeenCalledWith(mockSurvey);
+    });
+
+    it('should get a survey by id', async () => {
+      const survey = await service.getSurvey(mockSurvey.id);
+      expect(survey).toBeDefined();
+      expect(survey.id).toBe(mockSurvey.id);
+      expect(service.getSurvey).toHaveBeenCalledWith(mockSurvey.id);
+    });
+
+    it('should update a survey', async () => {
+      const updates = { name: 'Updated Survey Name' };
+      const updatedSurvey = await service.updateSurvey(mockSurvey.id, updates);
+      expect(updatedSurvey.name).toBe(updates.name);
+      expect(service.updateSurvey).toHaveBeenCalledWith(mockSurvey.id, updates);
+    });
+
+    it('should delete a survey', async () => {
+      await expect(service.deleteSurvey(mockSurvey.id)).resolves.toBeTruthy();
+      expect(service.deleteSurvey).toHaveBeenCalledWith(mockSurvey.id);
+    });
+
+    it('should throw error when getting non-existent survey', async () => {
+      await expect(service.getSurvey('non-existent-id'))
+        .rejects
+        .toThrow('Survey not found');
+    });
+  });
+
+  describe('Response Management', () => {
+    it('should create a new response', async () => {
+      const newResponse = await service.createResponse(mockResponse);
+      expect(newResponse).toBeDefined();
+      expect(newResponse.id).toBe('new-response-id');
+      expect(service.createResponse).toHaveBeenCalledWith(mockResponse);
+    });
+
+    it('should get responses for a survey', async () => {
+      const responses = await service.getResponses(mockSurvey.id);
+      expect(responses).toHaveLength(1);
+      expect(responses[0].surveyId).toBe(mockSurvey.id);
+      expect(service.getResponses).toHaveBeenCalledWith(mockSurvey.id);
+    });
+
+    it('should return empty array for non-existent survey responses', async () => {
+      const responses = await service.getResponses('non-existent-id');
+      expect(responses).toHaveLength(0);
+    });
+  });
+
+  describe('Statistics', () => {
+    it('should get survey statistics', async () => {
+      const stats = await service.getStats();
+      expect(stats).toBeDefined();
+      expect(stats.total).toBe(1);
+      expect(stats.completed).toBe(1);
+      expect(service.getStats).toHaveBeenCalled();
+    });
+
+    it('should get equipment statistics', async () => {
+      const equipmentStats = await service.getEquipmentStats();
+      expect(equipmentStats).toBeDefined();
+      expect(equipmentStats.length).toBeGreaterThan(0);
+      expect(equipmentStats[0].category).toBe('Power Generation');
+      expect(service.getEquipmentStats).toHaveBeenCalled();
+    });
+  });
+
+  describe('Filtering', () => {
+    it('should filter surveys by status', async () => {
+      const activeSurveys = await service.getSurveys({ status: SurveyStatus.ACTIVE });
+      expect(activeSurveys.length).toBe(1);
+      expect(activeSurveys[0].status).toBe(SurveyStatus.ACTIVE);
+    });
+
+    it('should return empty array for non-matching filters', async () => {
+      const archivedSurveys = await service.getSurveys({ status: SurveyStatus.ARCHIVED });
+      expect(archivedSurveys.length).toBe(0);
+    });
+  });
+});
+          if (id !== 'test-survey-id') {
+            throw new Error('Survey not found');
+          }
+          return undefined;
+        }),
+        getSurvey: jest.fn().mockImplementation(async (id: string) => {
+          if (id !== 'test-survey-id') {
+            throw new Error('Survey not found');
+          }
+          return {
+            id: 'test-survey-id',
+            name: 'Test Survey',
+            description: 'Test survey description',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            status: 'DRAFT' as const,
+            type: 'EQUIPMENT' as const,
+            questions: [],
+            responses: [],
+            metadata: {
+              facility: {
+                name: 'Test Facility',
+                type: 'SOLAR_FARM',
+                location: {
+                  address: '123 Test St',
+                  coordinates: {
+                    latitude: 0,
+                    longitude: 0
+                  }
+                },
+                contact: {
+                  name: 'Test Contact',
+                  email: 'test@example.com',
+                  phone: '+1234567890'
+                }
+              },
+              equipment: [],
+              infrastructure: {
+                waterAccess: false,
+                nationalGrid: false,
+                digitalConnectivity: '',
+                powerSupply: {
+                  type: '',
+                  capacity: 0,
+                  reliability: 0
+                }
+              }
+            }
+          };
+        }),
+        getSurveys: jest.fn().mockImplementation(async (filter: SurveyFilter = {}) => {
+          const surveys = [{
+            id: 'test-survey-id',
+            name: 'Test Survey',
+            description: 'Test survey description',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            status: 'DRAFT' as const,
+            type: 'EQUIPMENT' as const,
+            questions: [],
+            responses: [],
+            metadata: {
+              facility: {
+                name: 'Test Facility',
+                type: 'SOLAR_FARM',
+                location: {
+                  address: '123 Test St',
+                  coordinates: {
+                    latitude: 0,
+                    longitude: 0
+                  }
+                },
+                contact: {
+                  name: 'Test Contact',
+                  email: 'test@example.com',
+                  phone: '+1234567890'
+                }
+              },
+              equipment: [],
+              infrastructure: {
+                waterAccess: false,
+                nationalGrid: false,
+                digitalConnectivity: '',
+                powerSupply: {
+                  type: '',
+                  capacity: 0,
+                  reliability: 0
+                }
+              }
+            }
+          }];
+          
+          return surveys.filter(survey => {
+            if (filter.status && survey.status !== filter.status) return false;
+            if (filter.type && survey.type !== filter.type) return false;
+            return true;
+          });
+        }),
+        createResponse: jest.fn().mockImplementation(async (response: Response) => {
+          return {
+            ...response,
+            id: 'test-response-id',
+            submittedAt: new Date(),
+            status: 'IN_PROGRESS' as const,
+            metadata: {
+              duration: 0,
+              device: {
+                type: '',
+                os: '',
+                browser: ''
+              },
+              location: {
+                latitude: 0,
+                longitude: 0,
+                accuracy: 0
+              },
+              network: {
+                type: '',
+                speed: 0
+              }
+            }
+          };
+        }),
+        getResponses: jest.fn().mockImplementation(async (surveyId: string) => {
+          if (surveyId !== 'test-survey-id') {
+            throw new Error('Survey not found');
+          }
+          return [{
+            id: 'test-response-id',
+            surveyId: 'test-survey-id',
+            respondentId: 'test-respondent-id',
+            answers: [],
+            submittedAt: new Date(),
+            status: 'IN_PROGRESS' as const,
+            metadata: {
+              duration: 0,
+              device: {
+                type: '',
+                os: '',
+                browser: ''
+              },
+              location: {
+                latitude: 0,
+                longitude: 0,
+                accuracy: 0
+              },
+              network: {
+                type: '',
+                speed: 0
+              }
+            }
+          }];
+        }),
+        getStats: jest.fn().mockImplementation(async () => {
+          return {
+            total: 1,
+            completed: 1,
+            draft: 0,
+            responseRate: 100,
+            completionRate: 100,
+            averageDailyUsage: 8,
+            peakHours: 12,
+            equipmentCount: 1,
+            criticalEquipment: 1,
+            averageDuration: 30,
+            errorRate: 0
+          };
+        }),
+        getEquipmentStats: jest.fn().mockImplementation(async () => {
+          return [
+            {
+              category: 'Power Generation',
+              count: 1,
+              totalPower: 1000,
+              averageUsage: 8,
+              criticalCount: 1,
+              maintenanceDue: 0
+            }
+          ];
+        }),
+        calculateStats: jest.fn(),
+        calculateEquipmentStats: jest.fn()
+      };
+    })
+  };
+});
+
+describe('SurveyService Test Suite', () => {
+  let service: SurveyService;
+  let mockSurvey: Survey;
+  let mockResponse: Response;
+  let mockEquipment: Equipment;
+
+  beforeEach(async () => {
+    jest.clearAllMocks();
+    service = new SurveyService();
+    
+    mockEquipment = {
+      id: 'eq1',
+      name: 'Generator',
+      type: 'POWER',
+      category: 'Power Generation',
+      powerRating: 1000,
+      quantity: 1,
+      hoursPerDay: 8,
+      hoursPerNight: 0,
+      timeOfDay: 'MORNING',
+      weeklyUsage: 8,
+      critical: true,
+      maintenanceSchedule: {
+        frequency: 'MONTHLY',
+        lastMaintenance: new Date(),
+        nextMaintenance: new Date()
+      }
+    };
+
+    mockSurvey = createMockSurvey();
+    mockResponse = createMockResponse(mockSurvey.id);
+    
+    // Initialize mock implementations
+    await service.initializeService();
+
+    // Mock service methods with proper async/await
+    jest.spyOn(service, 'createSurvey').mockImplementation(async (survey: Survey): Promise<Survey> => {
+      const now = new Date();
+      return Promise.resolve({
+        ...survey,
+        id: 'test-survey-id',
+        createdAt: now,
+        updatedAt: now,
+        status: 'DRAFT' as const,
+        type: 'EQUIPMENT' as const,
+        responses: []
+      });
+    });
+
+    jest.spyOn(service, 'getSurveys').mockImplementation(async (filter: SurveyFilter = {}): Promise<Survey[]> => {
+      const surveys = [{
+        ...mockSurvey,
+        id: 'test-survey-id',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }];
+      
+      // Filter surveys based on filter criteria
+      return Promise.resolve(surveys.filter(survey => {
+        if (filter.status && survey.status !== filter.status) return false;
+        if (filter.type && survey.type !== filter.type) return false;
+        return true;
+      }));
+    });
+
+    jest.spyOn(service, 'getSurvey').mockImplementation(async (id: string): Promise<Survey> => {
+      if (id !== 'test-survey-id') {
+        throw new Error('Survey not found');
+      }
+      return Promise.resolve({
+        ...mockSurvey,
+        id: 'test-survey-id',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      });
+    });
+
+    jest.spyOn(service, 'getResponses').mockImplementation(async (surveyId: string): Promise<Response[]> => {
+      return Promise.resolve(surveyId === 'test-survey-id' ? [mockResponse] : []);
+    });
+
+    jest.spyOn(service, 'updateSurvey').mockImplementation(async (id: string, updates: Partial<Survey>): Promise<Survey> => {
+      if (id !== 'test-survey-id') {
+        throw new Error('Survey not found');
+      }
+      const now = new Date();
+      return Promise.resolve({
+        ...mockSurvey,
+        ...updates,
+        id: 'test-survey-id',
+        updatedAt: now
+      });
+    });
+
+    jest.spyOn(service, 'deleteSurvey').mockImplementation(async (id: string): Promise<void> => {
+      if (id !== 'test-survey-id') {
+        throw new Error('Survey not found');
+      }
+      return Promise.resolve();
+    });
+
+    jest.spyOn(service, 'getStats').mockImplementation(async (): Promise<SurveyStats> => {
+      return Promise.resolve({
+        total: 1,
+        completed: 1,
+        draft: 0,
+        responseRate: 0,
+        completionRate: 0,
+        averageDailyUsage: 0,
+        peakHours: 0,
+        equipmentCount: 0,
+        criticalEquipment: 0,
+        averageDuration: 0,
+        errorRate: 0
+      });
+    });
+
+    jest.spyOn(service, 'getEquipmentStats').mockImplementation(async (): Promise<EquipmentStats[]> => {
+      return Promise.resolve([
+        {
+          category: 'Power Generation',
+          count: 1,
+          totalPower: 1000,
+          averageUsage: 8,
+          criticalCount: 1,
+          maintenanceDue: 0
+        }
+      ]);
+    });
+
+    jest.spyOn(service, 'createResponse').mockImplementation(async (response: Response): Promise<Response> => {
+      const now = new Date();
+      return Promise.resolve({
+        ...response,
+        id: 'test-response-id',
+        submittedAt: now,
+        status: 'COMPLETED' as const
+      });
+    });
+  });
+
+  describe('Initialization', () => {
+    it('should initialize service successfully', async () => {
+      await expect(service.initializeService()).resolves.toBeUndefined();
+      expect(service.loadSurveys).toHaveBeenCalled();
+      expect(service.loadResponses).toHaveBeenCalled();
+    });
+  });
+
+  describe('CRUD Operations', () => {
+    it('should create a survey successfully', async () => {
+      const createdSurvey = await service.createSurvey(mockSurvey);
+      expect(createdSurvey.id).toBeDefined();
+      expect(createdSurvey.name).toBe(mockSurvey.name);
+      expect(createdSurvey.status).toBe('DRAFT');
+    });
+
+    it('should read a survey successfully', async () => {
+      const createdSurvey = await service.createSurvey(mockSurvey);
+      const fetchedSurvey = await service.getSurvey(createdSurvey.id);
+      expect(fetchedSurvey).toBeDefined();
+      expect(fetchedSurvey.id).toBe(createdSurvey.id);
+    });
+
+    it('should update a survey successfully', async () => {
+      const createdSurvey = await service.createSurvey(mockSurvey);
+      const updates = { name: 'Updated Survey Name' };
+      const updatedSurvey = await service.updateSurvey(createdSurvey.id, updates);
+      expect(updatedSurvey.name).toBe(updates.name);
+    });
+
+    it('should delete a survey successfully', async () => {
+      const createdSurvey = await service.createSurvey(mockSurvey);
+      await expect(service.deleteSurvey(createdSurvey.id)).resolves.toBeUndefined();
+      await expect(service.getSurvey(createdSurvey.id)).rejects.toThrow('Survey not found');
+    });
+
+    it('should throw error when updating non-existent survey', async () => {
+      await expect(service.updateSurvey('non-existent-id', { name: 'Test' }))
+        .rejects
+        .toThrow('Survey not found');
+    });
+
+    it('should throw error when deleting non-existent survey', async () => {
+      await expect(service.deleteSurvey('non-existent-id'))
+        .rejects
+        .toThrow('Survey not found');
+    });
+
+
+      // Read
+      const retrievedSurvey = await service.getSurvey(createdSurvey.id);
+      expect(retrievedSurvey).toBeDefined();
+      expect(retrievedSurvey.name).toBe(mockSurvey.name);
+      expect(retrievedSurvey.id).toBe(createdSurvey.id);
+
+      // Update
+      const updatedSurvey = await service.updateSurvey(createdSurvey.id, {
+        name: 'Updated Survey'
+      });
+      expect(updatedSurvey).toBeDefined();
+      expect(updatedSurvey.name).toBe('Updated Survey');
+      expect(updatedSurvey.id).toBe(createdSurvey.id);
+      expect((updatedSurvey.updatedAt as Date).getTime()).toBeGreaterThan((createdSurvey.updatedAt as Date).getTime());
+
+      // Delete
+      await service.deleteSurvey(createdSurvey.id);
+      await expect(service.getSurvey(createdSurvey.id)).rejects.toThrow('Survey not found');
+
+      // Verify deletion
+      const surveysAfterDelete = await service.getSurveys();
+      expect(surveysAfterDelete).toHaveLength(0);
+    });
+
+    it('should validate survey data', async () => {
+      // Test survey validation
+      const invalidSurvey = { ...mockSurvey };
+      invalidSurvey.name = '';
+      await expect(service.createSurvey(invalidSurvey)).rejects.toThrow('Survey name is required');
+
+      const invalidSurvey2 = { ...mockSurvey };
+      invalidSurvey2.questions = [];
+      await expect(service.createSurvey(invalidSurvey2)).rejects.toThrow('Survey must have at least one question');
+
+      const invalidSurvey3 = { ...mockSurvey };
+      invalidSurvey3.metadata = {
+        facility: {
+          name: '',
+          type: '',
+          location: {
+            address: '',
+            coordinates: {
+              latitude: 0,
+              longitude: 0
+            }
+          },
+          contact: {
+            name: '',
+            email: '',
+            phone: ''
+          }
+        },
+        equipment: [],
+        infrastructure: {
+          waterAccess: false,
+          nationalGrid: false,
+          digitalConnectivity: '',
+          powerSupply: {
+            type: '',
+            capacity: 0,
+            reliability: 0
+          }
+        }
+      };
+      await expect(service.createSurvey(invalidSurvey3)).rejects.toThrow('Survey metadata is required');
+
+      // Test valid survey creation
+      const validSurvey = { ...mockSurvey };
+      validSurvey.metadata = {
+        facility: {
+          name: 'Valid Facility',
+          type: 'SOLAR_FARM',
+          location: {
+            address: '123 Valid St',
+            coordinates: {
+              latitude: 37.7749,
+              longitude: -122.4194
+            }
+          },
+          contact: {
+            name: 'Valid Contact',
+            email: 'valid@example.com',
+            phone: '+1234567890'
+          }
+        },
+        equipment: [{
+          id: 'eq1',
+          name: 'Solar Panel',
+          type: 'SOLAR',
+          category: 'Power Generation',
+          powerRating: 1000,
+          quantity: 1,
+          hoursPerDay: 8,
+          hoursPerNight: 0,
+          timeOfDay: 'MORNING',
+          weeklyUsage: 8,
+          critical: true,
+          maintenanceSchedule: {
+            frequency: 'MONTHLY',
+            lastMaintenance: new Date(),
+            nextMaintenance: new Date()
+          }
+        }],
+        infrastructure: {
+          waterAccess: true,
+          nationalGrid: true,
+          digitalConnectivity: '4G',
+          powerSupply: {
+            type: 'SOLAR',
+            capacity: 1000,
+            reliability: 99.9
+          }
+        }
+      };
+      const createdSurvey = await service.createSurvey(validSurvey);
+      expect(createdSurvey).toBeDefined();
+      expect(createdSurvey.id).toBeDefined();
+      expect(createdSurvey.name).toBe(validSurvey.name);
+      expect(createdSurvey.createdAt).toBeDefined();
+      expect(createdSurvey.updatedAt).toBeDefined();
+    });
+  });
+
+  describe('Response Management', () => {
+    beforeEach(() => {
+      // Reset mocks before each test
+      jest.clearAllMocks();
+    });
+
+    it('should create and retrieve responses', async () => {
+      const survey = await service.createSurvey(mockSurvey);
+      const response = await service.createResponse(mockResponse);
+      
+      const retrievedResponses = await service.getResponses(survey.id);
+      expect(retrievedResponses).toHaveLength(1);
+      expect(retrievedResponses[0].id).toBe(response.id);
+    });
+
+    it('should validate response data', async () => {
+      // Test response validation
+      const invalidResponse = { ...mockResponse };
+      invalidResponse.surveyId = '';
+      await expect(service.createResponse(invalidResponse)).rejects.toThrow('Survey ID is required');
+
+      const invalidResponse2 = { ...mockResponse };
+      invalidResponse2.respondentId = '';
+      await expect(service.createResponse(invalidResponse2)).rejects.toThrow('Respondent ID is required');
+
+      const invalidResponse3 = { ...mockResponse };
+      invalidResponse3.answers = [];
+      await expect(service.createResponse(invalidResponse3)).rejects.toThrow('At least one answer is required');
+    });
+
+    it('should throw error when getting responses for non-existent survey', async () => {
+      await expect(service.getResponses('non-existent-id'))
+        .rejects
+        .toThrow('Survey not found');
+    });
+  });
+
+  describe('Survey Loading', () => {
+    it('should load surveys with filters', async () => {
+      await service.loadSurveys();
+      const surveys = await service.getSurveys({ status: 'DRAFT' });
+      expect(surveys.length).toBeGreaterThan(0);
+      expect(surveys.every(s => s.status === 'DRAFT')).toBe(true);
+    });
+
+    it('should load responses', async () => {
+      await service.loadResponses();
+      const survey = await service.createSurvey(mockSurvey);
+      await service.createResponse(mockResponse);
+      const responses = await service.getResponses(survey.id);
+      expect(responses.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('Statistics', () => {
+    beforeEach(() => {
+      // Reset mocks before each test
+      jest.clearAllMocks();
+      
+      // Mock default implementation for getEquipmentStats
+      jest.spyOn(service, 'getEquipmentStats').mockResolvedValue([]);
+    });
+    
+    it('should handle empty survey list', async () => {
+      jest.spyOn(service, 'getSurveys').mockResolvedValue([]);
+      
+      const stats = await service.getStats();
+      expect(stats).toBeDefined();
+      expect(stats.total).toBe(0);
+      expect(stats.completed).toBe(0);
+      expect(stats.draft).toBe(0);
+      expect(stats.responseRate).toBe(0);
+      expect(stats.completionRate).toBe(0);
+      expect(stats.averageDailyUsage).toBe(0);
+      expect(stats.peakHours).toBe(0);
+      expect(stats.equipmentCount).toBe(0);
+      expect(stats.criticalEquipment).toBe(0);
+      expect(stats.averageDuration).toBe(0);
+      expect(stats.errorRate).toBe(0);
+    });
+
+    it('should calculate statistics', async () => {
+      // Mock equipment stats
+      jest.spyOn(service, 'getEquipmentStats').mockResolvedValue([
+        {
+          category: 'Power Generation',
+          count: 1,
+          totalPower: 1000,
+          averageUsage: 8,
+          criticalCount: 1,
+          maintenanceDue: 0
+        }
+      ]);
+
+      const createdSurvey = await service.createSurvey({
+        ...mockSurvey,
+        metadata: {
+          ...mockSurvey.metadata,
+          equipment: [mockEquipment]
+        }
+      });
+      
+      const createdResponse = await service.createResponse(mockResponse);
+      
+      // Mock calculateStats to return expected values
+      jest.spyOn(service, 'calculateStats').mockImplementation(() => {
+        return {
+          total: 1,
+          completed: 1,
+          draft: 0,
+          responseRate: 100,
+          completionRate: 100,
+          averageDailyUsage: 8,
+          peakHours: 12,
+          equipmentCount: 1,
+          criticalEquipment: 1,
+          averageDuration: 30,
+          errorRate: 0
+        };
+      });
+      
+      const stats = await service.getStats();
+      expect(stats).toBeDefined();
+      expect(service.calculateStats).toHaveBeenCalled();
+      expect(stats.total).toBe(1);
+      expect(stats.completed).toBe(1);
+      expect(stats.draft).toBe(0);
+      expect(stats.responseRate).toBe(100);
+      expect(stats.completionRate).toBe(100);
+      expect(stats.averageDailyUsage).toBe(8);
+      expect(stats.peakHours).toBe(12);
+      expect(stats.equipmentCount).toBe(1);
+      expect(stats.criticalEquipment).toBe(1);
+      expect(stats.averageDuration).toBe(30);
+      expect(stats.errorRate).toBe(0);
+    });
+
+    it('should calculate equipment statistics', async () => {
+      // Create survey with equipment
+      const survey = await service.createSurvey({
+        ...mockSurvey,
+        metadata: {
+          ...mockSurvey.metadata,
+          equipment: [mockEquipment]
+        }
+      });
+
+      // Mock calculateEquipmentStats
+      const mockEquipmentStats = [
+        {
+          category: 'Power Generation',
+          count: 1,
+          totalPower: 1000,
+          averageUsage: 8,
+          criticalCount: 1,
+          maintenanceDue: 0
+        }
+      ];
+      
+      jest.spyOn(service, 'calculateEquipmentStats').mockImplementation(() => {
+        return mockEquipmentStats;
+      });
+
+      const equipmentStats = await service.getEquipmentStats();
+      expect(equipmentStats).toBeDefined();
+      expect(service.calculateEquipmentStats).toHaveBeenCalled();
+      expect(equipmentStats.length).toBe(1);
+      expect(equipmentStats[0].category).toBe('Power Generation');
+      expect(equipmentStats[0].totalPower).toBe(1000);
+      expect(equipmentStats[0].criticalCount).toBe(1);
+      expect(equipmentStats[0].maintenanceDue).toBe(0);
+    });
+
+    it('should handle empty equipment list', async () => {
+      const survey = await service.createSurvey(mockSurvey);
+      
+      jest.spyOn(service, 'calculateEquipmentStats').mockImplementation(() => {
+        return [];
+      });
+
+      const equipmentStats = await service.getEquipmentStats();
+      expect(equipmentStats).toHaveLength(0);
+    });
+  });
+    });
+  });
+});

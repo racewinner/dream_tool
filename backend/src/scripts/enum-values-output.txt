@@ -1,0 +1,118 @@
+[2025-07-29T02:51:53.662Z] ===== Starting Enum Value Check =====
+[2025-07-29T02:51:53.966Z] Connected to the database
+[2025-07-29T02:51:54.032Z] 
+Found the following enum types and values:
+[2025-07-29T02:51:54.033Z] ------------------------------------------------
+[2025-07-29T02:51:54.034Z] 
+Enum Type: enum_assets_status
+[2025-07-29T02:51:54.037Z] Values:
+[2025-07-29T02:51:54.039Z]   1. 'active'
+[2025-07-29T02:51:54.040Z]   2. 'maintenance'
+[2025-07-29T02:51:54.041Z]   3. 'faulty'
+[2025-07-29T02:51:54.042Z] 
+Enum Type: enum_equipment_timeOfDay
+[2025-07-29T02:51:54.043Z] Values:
+[2025-07-29T02:51:54.044Z]   1. 'morning'
+[2025-07-29T02:51:54.045Z]   2. 'afternoon'
+[2025-07-29T02:51:54.046Z]   3. 'evening'
+[2025-07-29T02:51:54.047Z]   4. 'night'
+[2025-07-29T02:51:54.049Z] 
+Enum Type: enum_facilities_status
+[2025-07-29T02:51:54.049Z] Values:
+[2025-07-29T02:51:54.050Z]   1. 'survey'
+[2025-07-29T02:51:54.053Z]   2. 'design'
+[2025-07-29T02:51:54.054Z]   3. 'installed'
+[2025-07-29T02:51:54.055Z] 
+Enum Type: enum_facilities_type
+[2025-07-29T02:51:54.057Z] Values:
+[2025-07-29T02:51:54.059Z]   1. 'healthcare'
+[2025-07-29T02:51:54.060Z]   2. 'education'
+[2025-07-29T02:51:54.061Z]   3. 'community'
+[2025-07-29T02:51:54.063Z] 
+Enum Type: enum_maintenance_records_maintenanceStatus
+[2025-07-29T02:51:54.063Z] Values:
+[2025-07-29T02:51:54.065Z]   1. 'PENDING'
+[2025-07-29T02:51:54.067Z]   2. 'IN_PROGRESS'
+[2025-07-29T02:51:54.069Z]   3. 'COMPLETED'
+[2025-07-29T02:51:54.069Z] 
+Enum Type: enum_maintenance_records_maintenanceType
+[2025-07-29T02:51:54.070Z] Values:
+[2025-07-29T02:51:54.071Z]   1. 'ROUTINE'
+[2025-07-29T02:51:54.072Z]   2. 'CORRECTIVE'
+[2025-07-29T02:51:54.073Z]   3. 'PREVENTIVE'
+[2025-07-29T02:51:54.074Z] 
+Enum Type: enum_solar_systems_maintenance_frequency
+[2025-07-29T02:51:54.074Z] Values:
+[2025-07-29T02:51:54.075Z]   1. 'MONTHLY'
+[2025-07-29T02:51:54.076Z]   2. 'QUARTERLY'
+[2025-07-29T02:51:54.077Z]   3. 'YEARLY'
+[2025-07-29T02:51:54.078Z] 
+Enum Type: enum_solar_systems_status
+[2025-07-29T02:51:54.079Z] Values:
+[2025-07-29T02:51:54.079Z]   1. 'ACTIVE'
+[2025-07-29T02:51:54.080Z]   2. 'INACTIVE'
+[2025-07-29T02:51:54.081Z]   3. 'MAINTENANCE'
+[2025-07-29T02:51:54.082Z]   4. 'DECOMMISSIONED'
+[2025-07-29T02:51:54.083Z] 
+Enum Type: enum_solar_systems_system_type
+[2025-07-29T02:51:54.084Z] Values:
+[2025-07-29T02:51:54.085Z]   1. 'PV'
+[2025-07-29T02:51:54.086Z]   2. 'HYBRID'
+[2025-07-29T02:51:54.086Z]   3. 'STANDALONE'
+[2025-07-29T02:51:54.088Z] 
+Enum Type: enum_survey_versions_status
+[2025-07-29T02:51:54.089Z] Values:
+[2025-07-29T02:51:54.090Z]   1. 'draft'
+[2025-07-29T02:51:54.091Z]   2. 'completed'
+[2025-07-29T02:51:54.092Z]   3. 'archived'
+[2025-07-29T02:51:54.092Z] 
+Enum Type: enum_techno_economic_analyses_batteryType
+[2025-07-29T02:51:54.093Z] Values:
+[2025-07-29T02:51:54.094Z]   1. 'lithium'
+[2025-07-29T02:51:54.095Z]   2. 'lead_acid'
+[2025-07-29T02:51:54.095Z] 
+Enum Type: enum_techno_economic_analyses_costingMethod
+[2025-07-29T02:51:54.096Z] Values:
+[2025-07-29T02:51:54.097Z]   1. 'perWatt'
+[2025-07-29T02:51:54.098Z]   2. 'fixedVariable'
+[2025-07-29T02:51:54.099Z]   3. 'componentBased'
+[2025-07-29T02:51:54.100Z] 
+Enum Type: enum_users_role
+[2025-07-29T02:51:54.101Z] Values:
+[2025-07-29T02:51:54.102Z]   1. 'admin'
+[2025-07-29T02:51:54.103Z]   2. 'manager'
+[2025-07-29T02:51:54.104Z]   3. 'user'
+[2025-07-29T02:51:54.104Z] 
+Enum Type: enum_whatsapp_messages_direction
+[2025-07-29T02:51:54.106Z] Values:
+[2025-07-29T02:51:54.107Z]   1. 'in'
+[2025-07-29T02:51:54.108Z]   2. 'out'
+[2025-07-29T02:51:54.109Z] 
+Enum Type: enum_whatsapp_messages_status
+[2025-07-29T02:51:54.110Z] Values:
+[2025-07-29T02:51:54.111Z]   1. 'sent'
+[2025-07-29T02:51:54.113Z]   2. 'delivered'
+[2025-07-29T02:51:54.114Z]   3. 'read'
+[2025-07-29T02:51:54.114Z]   4. 'failed'
+[2025-07-29T02:51:54.115Z] 
+
+Enum Usage in Tables:
+[2025-07-29T02:51:54.115Z] ------------------------------------------------
+[2025-07-29T02:51:54.246Z] Table: assets, Column: status, Enum Type: enum_assets_status
+[2025-07-29T02:51:54.247Z] Table: equipment, Column: timeOfDay, Enum Type: enum_equipment_timeOfDay
+[2025-07-29T02:51:54.248Z] Table: facilities, Column: status, Enum Type: enum_facilities_status
+[2025-07-29T02:51:54.249Z] Table: facilities, Column: type, Enum Type: enum_facilities_type
+[2025-07-29T02:51:54.249Z] Table: maintenance_records, Column: maintenanceStatus, Enum Type: enum_maintenance_records_maintenanceStatus
+[2025-07-29T02:51:54.250Z] Table: maintenance_records, Column: maintenanceType, Enum Type: enum_maintenance_records_maintenanceType
+[2025-07-29T02:51:54.252Z] Table: solar_systems, Column: maintenance_frequency, Enum Type: enum_solar_systems_maintenance_frequency
+[2025-07-29T02:51:54.253Z] Table: solar_systems, Column: status, Enum Type: enum_solar_systems_status
+[2025-07-29T02:51:54.254Z] Table: solar_systems, Column: system_type, Enum Type: enum_solar_systems_system_type
+[2025-07-29T02:51:54.256Z] Table: techno_economic_analyses, Column: batteryType, Enum Type: enum_techno_economic_analyses_batteryType
+[2025-07-29T02:51:54.258Z] Table: techno_economic_analyses, Column: costingMethod, Enum Type: enum_techno_economic_analyses_costingMethod
+[2025-07-29T02:51:54.260Z] Table: users, Column: role, Enum Type: enum_users_role
+[2025-07-29T02:51:54.261Z] Table: whatsapp_messages, Column: direction, Enum Type: enum_whatsapp_messages_direction
+[2025-07-29T02:51:54.263Z] Table: whatsapp_messages, Column: status, Enum Type: enum_whatsapp_messages_status
+[2025-07-29T02:51:54.273Z] 
+Disconnected from the database
+[2025-07-29T02:51:54.274Z] 
+Check the complete output in: C:\Users\Olivia\DREAM_TOOL\backend\src\scripts\enum-values-output.txt

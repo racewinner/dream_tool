@@ -1,0 +1,16 @@
+
+Facilities table structure:
+
+Column Name          | Data Type          | Nullable | Default
+---------------------|--------------------|----------|-----------
+id                   | integer            | NO       | nextval('facilities_id_seq'::regclass)
+name                 | character varying  | NO       | NULL
+type                 | USER-DEFINED       | NO       | NULL
+latitude             | double precision   | NO       | NULL
+longitude            | double precision   | NO       | NULL
+status               | USER-DEFINED       | YES      | 'survey'::enum_facilities_status
+createdAt            | timestamp with time zone | NO       | NULL
+updatedAt            | timestamp with time zone | NO       | NULL
+userId               | integer            | YES      | NULL
+
+Total columns: 9

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug DREAM Tool</title>
+</head>
+<body>
+    <h1>Debug Test</h1>
+    <p>Testing if basic HTML works</p>
+    <script>
+        console.log('Basic HTML loaded');
+        fetch('http://localhost:5173')
+            .then(response => response.text())
+            .then(data => {
+                console.log('Response from frontend:', data.substring(0, 200));
+                document.getElementById('response').innerHTML = data.substring(0, 500);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('response').innerHTML = 'Error: ' + error.message;
+            });
+    </script>
+    <div id="response">Loading...</div>
+</body>
+</html>

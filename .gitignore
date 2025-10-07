@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build directories
+dist/
+build/
+out/
+.next/
+*.tsbuildinfo
+
+# IDE files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-volumes/
+*.log
+
+# Testing
+coverage/
+
+# Debug logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.js.map
+*.d.ts.map
+
+# Production
+.env.production
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Local Netlify folder
+.netlify
