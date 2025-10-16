@@ -383,46 +383,36 @@ async def test_analysis_services():
         print(f"❌ Error during analysis testing: {str(e)}")
         return False
 
-def main():
-    print("This is the main function of the script.")
-    # Add your program's logic here
-    result = 5 + 3
-    print(f"The result is: {result}")
-
-# async def main():
-#     """Main function"""
-#     print("=" * 60)
-#     print("🐍 DREAM TOOL - Sample Data Population")
-#     print("=" * 60)
-
-#     import pdb; pdb.set_trace()  # or breakpoint() in Python 3.7+
-
-#     # Step 1: Populate sample data
-#     import_success = await populate_sample_data()
+async def main():
+    """Main function"""
+    print("=" * 60)
+    print("🐍 DREAM TOOL - Sample Data Population")
+    print("=" * 60)
     
-#     if not import_success:
-#         print("\n❌ Sample data import failed")
-#         return False
+    # Step 1: Populate sample data
+    import_success = await populate_sample_data()
     
-#     # Step 2: Test analysis services
-#     analysis_success = await test_analysis_services()
+    if not import_success:
+        print("\n❌ Sample data import failed")
+        return False
     
-#     if not analysis_success:
-#         print("\n❌ Analysis services testing failed")
-#         return False
+    # Step 2: Test analysis services
+    analysis_success = await test_analysis_services()
     
-#     print("\n" + "=" * 60)
-#     print("🎉 SAMPLE DATA POPULATION COMPLETE!")
-#     print("=" * 60)
-#     print("✅ Database populated with sample survey data")
-#     print("✅ Analysis services tested and working")
-#     print("✅ Python services now use real database data")
-#     print("\n🚀 Ready to test enhanced data import and analysis!")
+    if not analysis_success:
+        print("\n❌ Analysis services testing failed")
+        return False
     
-#     return True
+    print("\n" + "=" * 60)
+    print("🎉 SAMPLE DATA POPULATION COMPLETE!")
+    print("=" * 60)
+    print("✅ Database populated with sample survey data")
+    print("✅ Analysis services tested and working")
+    print("✅ Python services now use real database data")
+    print("\n🚀 Ready to test enhanced data import and analysis!")
+    
+    return True
 
 if __name__ == "__main__":
-  print("This is the main function of the script.")
-    # main()
-    # success = asyncio.run(main())
-    # sys.exit(0 if success else 1)
+    success = asyncio.run(main())
+    sys.exit(0 if success else 1)
